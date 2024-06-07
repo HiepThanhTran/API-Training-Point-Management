@@ -1,0 +1,15 @@
+{% extends 'admin/base.html' %}
+{% load i18n static %}
+
+{% block extrastyle %}
+    <style>
+        #user-tools a {
+            margin: 0 10px;
+        }
+    </style>
+{% endblock %}
+
+{% block userlinks %}
+    <a href="{% url 'admin:statistics' %}">Statistics</a> /
+    {{ block.super }}
+{% endblock %}

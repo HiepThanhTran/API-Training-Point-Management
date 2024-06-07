@@ -1,0 +1,119 @@
+{% extends "admin/base_site.html" %}
+{% load static %}
+{% load i18n static %}
+
+{% block title %}Thống kê{% endblock %}
+
+{% block extrastyle %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="{% static 'css/layout/preloading.css' %}">
+    <link rel="stylesheet" href="{% static 'css/admin/statistics.css' %}">
+{% endblock %}
+
+{% block nav-global %}
+    <div class="nav-global">
+        <a href="{% url 'admin:index' %}">Trang chủ</a> /
+        <a href="{% url 'admin:statistics' %}">Thống kê</a> /
+        {% if user.has_usable_password %}
+            <a href="{% url 'admin:password_change' %}">{% translate 'Change password' %}</a> /
+        {% endif %}
+        <a href="{% url 'admin:logout' %}">Logout</a>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div id="selectionContainer" class="container-fluid d-flex mt-2">
+        <div class="dropdown">
+            <div>
+                <label for="faculty-select">Khoa: </label>
+                <select id="faculty-select">
+                    {% for faculty in faculties %}
+                        <option value="{{ faculty.id }}" {% if forloop.first %}selected{% endif %}>{{ faculty.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <ul class="list-group mt-2 text-xl-center">
+                <li class="list-group-item total-classes-faculty">Tổng số lớp toàn khoa: <p>{{ statistics_faculty.total_classes }}</p></li>
+                <li class="list-group-item total-students-faculty">Tổng sinh viên toàn khoa: <p>{{ statistics_faculty.total_students }}</p></li>
+                <li class="list-group-item total-points-faculty">Tổng điểm toàn khoa: <p>{{ statistics_faculty.total_points }}</p></li>
+                <li class="list-group-item average-points-faculty">Điểm trung bình toàn khoa: <p>{{ statistics_faculty.average_points }}</p></li>
+            </ul>
+        </div>
+        <div class="dropdown ms-5">
+            <label for="semester-select">Học kỳ: </label>
+            <select id="semester-select">
+                {% for semester in semesters %}
+                    <option value="{{ semester.code }}" {% if forloop.first %}selected{% endif %}>
+                        {{ semester.original_name }} - {{ semester.academic_year.start_date.year }}-
+                        {{ semester.academic_year.end_date.year }}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="dropdown ms-5">
+            <div>
+                <label for="class-select">Lớp: </label>
+                <select id="class-select">
+                    {% for class in classes %}
+                        <option value="{{ class.id }}" {% if forloop.first %}selected{% endif %}>
+                            {{ class.name }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+            <ul class="list-group mt-2 text-xl-center">
+                <li class="list-group-item total-students-class">Tổng sinh viên toàn lớp: <p>{{ statistics_class.total_students }}</p></li>
+                <li class="list-group-item total-points-class">Tổng điểm toàn lớp: <p>{{ statistics_class.total_points }}</p></li>
+                <li class="list-group-item average-points-class">Điểm trung bình toàn lớp: <p>{{ statistics_class.average_points }}</p></li>
+            </ul>
+        </div>
+    </div>
+    <div id="chartContainer" class="container-fluid">
+        <div class="row">
+            <div class="col left">
+                <canvas id="chartFaculty"></canvas>
+            </div>
+            <div class="col right">
+                <canvas id="chartClass"></canvas>
+            </div>
+        </div>
+    </div>
+    {% include 'layout/preloading.html' %}
+{% endblock %}
+
+{% block footer %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="{% static 'js/utils.js' %}"></script>
+    <script src="{% static 'js/admin/statistics.js' %}"></script>
+    <script>
+        let labelsLeft = []
+        let dataLeft = []
+        let bgColorsLeft = []
+        let borderColorsLeft = []
+        let chartLeftColors
+        {% for key, value in statistics_faculty.achievements.items %}
+            labelsLeft.push("{{ key }}")
+            dataLeft.push({{ value }})
+            chartLeftColors = generateRandomColor();
+            bgColorsLeft.push(chartLeftColors.color);
+            borderColorsLeft.push(chartLeftColors.borderColor);
+        {% endfor %}
+
+
+        let labelsRight = []
+        let dataRight = []
+        let bgColorsRight = []
+        let borderColorsRight = []
+        let chartRightColors
+        {% for key, value in statistics_class.achievements.items %}
+            labelsRight.push("{{ key }}")
+            dataRight.push({{ value }})
+            chartRightColors = generateRandomColor();
+            bgColorsRight.push(chartRightColors.color);
+            borderColorsRight.push(chartRightColors.borderColor);
+        {% endfor %}
+    </script>
+{% endblock %}

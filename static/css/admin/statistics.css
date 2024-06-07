@@ -1,0 +1,17 @@
+.nav-global a {
+    margin: 0 10px;
+}
+
+select {
+    height: 32px;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.list-group .list-group-item {
+    font-size: medium;
+}
+
+.list-group .list-group-item p {
+    display: inline;
+}
