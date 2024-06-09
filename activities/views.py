@@ -84,7 +84,7 @@ class ActivityViewSet(viewsets.ViewSet, generics.ListCreateAPIView, generics.Ret
     serializer_class = activities_serializers.ActivitySerializer
     pagination_class = paginators.ActivityPagination
 
-    filter_params = ["bulletin_id", "faculty_id", "semester_code", "criterion_id"]
+    filter_params = ["bulletin_id", "faculty_id", "semester_code", "criterion_id", "organizer_id"]
 
     def get_queryset(self):
         queryset = self.queryset

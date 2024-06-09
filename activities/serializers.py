@@ -46,25 +46,27 @@ class BulletinSerializer(BaseSerializer):
 
 
 class BulletinDetailsSerialzer(BulletinSerializer):
-    poster = serializers.SerializerMethodField()
+    created_by = serializers.SerializerMethodField()
 
     class Meta:
         model = BulletinSerializer.Meta.model
-        fields = BulletinSerializer.Meta.fields + ["poster"]
+        fields = BulletinSerializer.Meta.fields + ["created_by"]
 
-    def get_poster(self, bulletin):
+    def get_created_by(self, bulletin):
         serializer_class = validations.check_user_instance(bulletin.poster)[0]
         return serializer_class(bulletin.poster).data
 
 
 class ActivitySerializer(BaseSerializer):
+    total_likes = serializers.SerializerMethodField()
+
     class Meta:
         model = Activity
         fields = [
             "id", "name", "participant", "start_date", "end_date",
             "location", "point", "updated_date", "created_date",
             "bulletin", "faculty", "semester", "criterion",
-            "image", "organizational_form", "description"
+            "image", "organizational_form", "total_likes", "description"
         ]
 
     def to_representation(self, activity):
@@ -108,6 +110,9 @@ class ActivitySerializer(BaseSerializer):
 
         return activity
 
+    def get_total_likes(self, activity):
+        return activity.likes.filter(is_active=True).count()
+
 
 class AuthenticatedActivitySerializer(ActivitySerializer):
     liked = serializers.SerializerMethodField()
@@ -128,13 +133,13 @@ class AuthenticatedActivitySerializer(ActivitySerializer):
 
 
 class AuthenticatedActivityDetailsSerializer(AuthenticatedActivitySerializer):
-    organizer = serializers.SerializerMethodField()
+    created_by = serializers.SerializerMethodField()
 
     class Meta:
         model = ActivitySerializer.Meta.model
-        fields = AuthenticatedActivitySerializer.Meta.fields + ["organizer"]
+        fields = AuthenticatedActivitySerializer.Meta.fields + ["created_by"]
 
-    def get_organizer(self, activity):
+    def get_created_by(self, activity):
         serializer_class = validations.check_user_instance(activity.organizer)[0]
         return serializer_class(activity.organizer).data
 
