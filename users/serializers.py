@@ -1,5 +1,4 @@
 from rest_framework import serializers
-from rest_framework.exceptions import ValidationError
 
 from core.base.serializers import BaseSerializer
 from core.utils import factory, validations

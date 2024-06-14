@@ -6,7 +6,7 @@ class StudentPagination(pagination.PageNumberPagination):
 
 
 class BulletinPagination(pagination.PageNumberPagination):
-    page_size = 3
+    page_size = 4
 
 
 class ActivityPagination(pagination.PageNumberPagination):
@@ -14,11 +14,11 @@ class ActivityPagination(pagination.PageNumberPagination):
 
 
 class MissingActivityReportPagination(pagination.PageNumberPagination):
-    page_size = 5
+    page_size = 4
     
 
 class SemesterPagination(pagination.PageNumberPagination):
-    page_size = 4
+    page_size = 3
 
 
 class CommentPaginators(pagination.PageNumberPagination):

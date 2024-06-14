@@ -1,202 +1,202 @@
 [
-	{
-		"name": "Công nghệ thông tin 1",
-		"major_id": 1,
-		"academic_year_id": 1
-	},
-	{
-		"name": "Công nghệ thông tin 2",
-		"major_id": 1,
-		"academic_year_id": 1
-	},
-	{
-		"name": "Công nghệ thông tin 3",
-		"major_id": 1,
-		"academic_year_id": 1
-	},
-	{
-		"name": "Khoa học máy tính 1",
-		"major_id": 2,
-		"academic_year_id": 1
-	},
-	{
-		"name": "Khoa học máy tính 2",
-		"major_id": 2,
-		"academic_year_id": 1
-	},
-	{
-		"name": "Khoa học máy tính 3",
-		"major_id": 2,
-		"academic_year_id": 1
-	},
-	{
-		"name": "Hệ thống thông tin quản lý 1",
-		"major_id": 3,
-		"academic_year_id": 1
-	},
-	{
-		"name": "Hệ thống thông tin quản lý 2",
-		"major_id": 3,
-		"academic_year_id": 1
-	},
-	{
-		"name": "Hệ thống thông tin quản lý 3",
-		"major_id": 3,
-		"academic_year_id": 1
-	},
-	{
-		"name": "Trí tuệ nhân tạo 1",
-		"major_id": 4,
-		"academic_year_id": 1
-	},
-	{
-		"name": "Trí tuệ nhân tạo 2",
-		"major_id": 4,
-		"academic_year_id": 1
-	},
-	{
-		"name": "Trí tuệ nhân tạo 3",
-		"major_id": 4,
-		"academic_year_id": 1
-	},
-	{
-		"name": "Du lịch 1",
-		"major_id": 5,
-		"academic_year_id": 2
-	},
-	{
-		"name": "Du lịch 2",
-		"major_id": 5,
-		"academic_year_id": 2
-	},
-	{
-		"name": "Marketing 1",
-		"major_id": 6,
-		"academic_year_id": 2
-	},
-	{
-		"name": "Marketing 2",
-		"major_id": 6,
-		"academic_year_id": 2
-	},
-	{
-		"name": "Quản trị nhân lực 1",
-		"major_id": 7,
-		"academic_year_id": 2
-	},
-	{
-		"name": "Quản trị nhân lực 2",
-		"major_id": 7,
-		"academic_year_id": 2
-	},
-	{
-		"name": "Kinh doanh quốc tế 1",
-		"major_id": 8,
-		"academic_year_id": 2
-	},
-	{
-		"name": "Kinh doanh quốc tế 2",
-		"major_id": 8,
-		"academic_year_id": 2
-	},
-	{
-		"name": "Quản trị kinh doanh 1",
-		"major_id": 9,
-		"academic_year_id": 2
-	},
-	{
-		"name": "Quản trị kinh doanh 2",
-		"major_id": 9,
-		"academic_year_id": 2
-	},
-	{
-		"name": "Logistics & Quản lý chuỗi cung ứng 1",
-		"major_id": 10,
-		"academic_year_id": 2
-	},
-	{
-		"name": "Logistics & Quản lý chuỗi cung ứng 2",
-		"major_id": 10,
-		"academic_year_id": 2
-	},
-	{
-		"name": "Công nghệ sinh học 1",
-		"major_id": 11,
-		"academic_year_id": 3
-	},
-	{
-		"name": "Công nghệ sinh học 2",
-		"major_id": 11,
-		"academic_year_id": 3
-	},
-	{
-		"name": "Công nghệ thực phẩm 1",
-		"major_id": 12,
-		"academic_year_id": 3
-	},
-	{
-		"name": "Công nghệ thực phẩm 2",
-		"major_id": 12,
-		"academic_year_id": 3
-	},
-	{
-		"name": "Tâm lý học 1",
-		"major_id": 13,
-		"academic_year_id": 4
-	},
-	{
-		"name": "Tâm lý học 2",
-		"major_id": 13,
-		"academic_year_id": 4
-	},
-	{
-		"name": "Xã hội học 1",
-		"major_id": 14,
-		"academic_year_id": 4
-	},
-	{
-		"name": "Xã hội học 2",
-		"major_id": 14,
-		"academic_year_id": 4
-	},
-	{
-		"name": "Đông Nam Á học 1",
-		"major_id": 15,
-		"academic_year_id": 4
-	},
-	{
-		"name": "Đông Nam Á học 2",
-		"major_id": 15,
-		"academic_year_id": 4
-	},
-	{
-		"name": "Công tác xã hội",
-		"major_id": 16,
-		"academic_year_id": 4
-	},
-	{
-		"name": "Công tác xã hội",
-		"major_id": 16,
-		"academic_year_id": 4
-	},
-	{
-		"name": "Công nghệ kỹ thuật Công trình xây dựng 1",
-		"major_id": 17,
-		"academic_year_id": 5
-	},
-	{
-		"name": "Công nghệ kỹ thuật Công trình xây dựng 2",
-		"major_id": 17,
-		"academic_year_id": 5
-	},
-	{
-		"name": "Quản lý xây dựng 1",
-		"major_id": 18,
-		"academic_year_id": 5
-	},
-	{
-		"name": "Quản lý xây dựng 2",
-		"major_id": 18,
-		"academic_year_id": 5
-	}
+  {
+    "name": "Công nghệ thông tin 1",
+    "major_id": 1,
+    "academic_year_id": 1
+  },
+  {
+    "name": "Công nghệ thông tin 2",
+    "major_id": 1,
+    "academic_year_id": 1
+  },
+  {
+    "name": "Công nghệ thông tin 3",
+    "major_id": 1,
+    "academic_year_id": 1
+  },
+  {
+    "name": "Khoa học máy tính 1",
+    "major_id": 2,
+    "academic_year_id": 1
+  },
+  {
+    "name": "Khoa học máy tính 2",
+    "major_id": 2,
+    "academic_year_id": 1
+  },
+  {
+    "name": "Khoa học máy tính 3",
+    "major_id": 2,
+    "academic_year_id": 1
+  },
+  {
+    "name": "Hệ thống thông tin quản lý 1",
+    "major_id": 3,
+    "academic_year_id": 1
+  },
+  {
+    "name": "Hệ thống thông tin quản lý 2",
+    "major_id": 3,
+    "academic_year_id": 1
+  },
+  {
+    "name": "Hệ thống thông tin quản lý 3",
+    "major_id": 3,
+    "academic_year_id": 1
+  },
+  {
+    "name": "Trí tuệ nhân tạo 1",
+    "major_id": 4,
+    "academic_year_id": 1
+  },
+  {
+    "name": "Trí tuệ nhân tạo 2",
+    "major_id": 4,
+    "academic_year_id": 1
+  },
+  {
+    "name": "Trí tuệ nhân tạo 3",
+    "major_id": 4,
+    "academic_year_id": 1
+  },
+  {
+    "name": "Du lịch 1",
+    "major_id": 5,
+    "academic_year_id": 2
+  },
+  {
+    "name": "Du lịch 2",
+    "major_id": 5,
+    "academic_year_id": 2
+  },
+  {
+    "name": "Marketing 1",
+    "major_id": 6,
+    "academic_year_id": 2
+  },
+  {
+    "name": "Marketing 2",
+    "major_id": 6,
+    "academic_year_id": 2
+  },
+  {
+    "name": "Quản trị nhân lực 1",
+    "major_id": 7,
+    "academic_year_id": 2
+  },
+  {
+    "name": "Quản trị nhân lực 2",
+    "major_id": 7,
+    "academic_year_id": 2
+  },
+  {
+    "name": "Kinh doanh quốc tế 1",
+    "major_id": 8,
+    "academic_year_id": 2
+  },
+  {
+    "name": "Kinh doanh quốc tế 2",
+    "major_id": 8,
+    "academic_year_id": 2
+  },
+  {
+    "name": "Quản trị kinh doanh 1",
+    "major_id": 9,
+    "academic_year_id": 2
+  },
+  {
+    "name": "Quản trị kinh doanh 2",
+    "major_id": 9,
+    "academic_year_id": 2
+  },
+  {
+    "name": "Logistics & Quản lý chuỗi cung ứng 1",
+    "major_id": 10,
+    "academic_year_id": 2
+  },
+  {
+    "name": "Logistics & Quản lý chuỗi cung ứng 2",
+    "major_id": 10,
+    "academic_year_id": 2
+  },
+  {
+    "name": "Công nghệ sinh học 1",
+    "major_id": 11,
+    "academic_year_id": 3
+  },
+  {
+    "name": "Công nghệ sinh học 2",
+    "major_id": 11,
+    "academic_year_id": 3
+  },
+  {
+    "name": "Công nghệ thực phẩm 1",
+    "major_id": 12,
+    "academic_year_id": 3
+  },
+  {
+    "name": "Công nghệ thực phẩm 2",
+    "major_id": 12,
+    "academic_year_id": 3
+  },
+  {
+    "name": "Tâm lý học 1",
+    "major_id": 13,
+    "academic_year_id": 4
+  },
+  {
+    "name": "Tâm lý học 2",
+    "major_id": 13,
+    "academic_year_id": 4
+  },
+  {
+    "name": "Xã hội học 1",
+    "major_id": 14,
+    "academic_year_id": 4
+  },
+  {
+    "name": "Xã hội học 2",
+    "major_id": 14,
+    "academic_year_id": 4
+  },
+  {
+    "name": "Đông Nam Á học 1",
+    "major_id": 15,
+    "academic_year_id": 4
+  },
+  {
+    "name": "Đông Nam Á học 2",
+    "major_id": 15,
+    "academic_year_id": 4
+  },
+  {
+    "name": "Công tác xã hội",
+    "major_id": 16,
+    "academic_year_id": 4
+  },
+  {
+    "name": "Công tác xã hội",
+    "major_id": 16,
+    "academic_year_id": 4
+  },
+  {
+    "name": "Công nghệ kỹ thuật Công trình xây dựng 1",
+    "major_id": 17,
+    "academic_year_id": 5
+  },
+  {
+    "name": "Công nghệ kỹ thuật Công trình xây dựng 2",
+    "major_id": 17,
+    "academic_year_id": 5
+  },
+  {
+    "name": "Quản lý xây dựng 1",
+    "major_id": 18,
+    "academic_year_id": 5
+  },
+  {
+    "name": "Quản lý xây dựng 2",
+    "major_id": 18,
+    "academic_year_id": 5
+  }
 ]

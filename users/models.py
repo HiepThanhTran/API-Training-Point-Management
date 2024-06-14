@@ -146,8 +146,8 @@ class Student(User):
 
 	major = models.ForeignKey(to="schools.Major", null=True, on_delete=models.SET_NULL, related_name="students")
 	sclass = models.ForeignKey(to="schools.Class", null=True, on_delete=models.SET_NULL, related_name="students")
-	academic_year = models.ForeignKey(to="schools.AcademicYear", null=True, on_delete=models.SET_NULL, related_name="students", )
-	educational_system = models.ForeignKey(to="schools.EducationalSystem", null=True, on_delete=models.SET_NULL, related_name="students", )
+	academic_year = models.ForeignKey(to="schools.AcademicYear", null=True, on_delete=models.SET_NULL, related_name="students")
+	educational_system = models.ForeignKey(to="schools.EducationalSystem", null=True, on_delete=models.SET_NULL, related_name="students")
 
 	def generate_code(self):
 		return f"{str(self.academic_year.start_date.year)[-2:]}{self.faculty.id:02d}{self.id:06d}"

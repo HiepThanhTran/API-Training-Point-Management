@@ -1,50 +1,50 @@
 [
-	{
-		"name": "Bản tin tháng 1",
-		"description": "elit, pretium et, rutrum non, hendrerit id, ante. Nunc mauris sapien, cursus in, hendrerit consectetuer, cursus et, magna. Praesent interdum ligula eu enim. Etiam imperdiet dictum magna. Ut tincidunt orci quis lectus. Nullam suscipit, est ac facilisis facilisis, magna tellus faucibus leo, in lobortis tellus justo sit amet nulla. Donec non justo. Proin non massa non ante bibendum ullamcorper. Duis cursus, diam at pretium aliquet, metus urna convallis erat, eget tincidunt dui augue eu tellus. Phasellus elit pede, malesuada vel, venenatis vel, faucibus id, libero. Donec consectetuer mauris id sapien. Cras dolor dolor, tempus non,"
-	},
-	{
-		"name": "Bản tin tháng 2",
-		"description": "ac ipsum. Phasellus vitae mauris sit amet lorem semper auctor. Mauris vel turpis. Aliquam adipiscing lobortis risus. In mi pede, nonummy ut, molestie in, tempus eu, ligula. Aenean euismod mauris eu elit. Nulla facilisi. Sed neque. Sed eget lacus. Mauris non dui nec urna suscipit nonummy. Fusce fermentum fermentum arcu. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae Phasellus ornare. Fusce mollis."
-	},
-	{
-		"name": "Bản tin tháng 3",
-		"description": "a sollicitudin orci sem eget massa. Suspendisse eleifend. Cras sed leo. Cras vehicula aliquet libero. Integer in magna. Phasellus dolor elit, pellentesque a, facilisis non, bibendum sed, est. Nunc laoreet lectus quis massa. Mauris vestibulum, neque sed dictum eleifend, nunc risus varius orci, in consequat enim diam vel arcu. Curabitur ut odio vel est tempor bibendum. Donec felis orci, adipiscing non, luctus"
-	},
-	{
-		"name": "Bản tin tháng 4",
-		"description": "nec urna suscipit nonummy. Fusce fermentum fermentum arcu. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae Phasellus ornare. Fusce mollis. Duis sit amet diam eu dolor egestas rhoncus. Proin nisl sem, consequat nec, mollis vitae, posuere at, velit. Cras lorem lorem, luctus ut, pellentesque eget, dictum placerat, augue. Sed molestie. Sed id risus quis diam luctus lobortis. Class aptent taciti sociosqu"
-	},
-	{
-		"name": "Bản tin tháng 5",
-		"description": "libero. Donec consectetuer mauris id sapien. Cras dolor dolor, tempus non, lacinia at, iaculis quis, pede. Praesent eu dui. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean eget magna. Suspendisse tristique neque venenatis lacus. Etiam bibendum fermentum metus. Aenean sed pede nec ante blandit viverra. Donec"
-	},
-	{
-		"name": "Bản tin tháng 6",
-		"description": "lacinia. Sed congue, elit sed consequat auctor, nunc nulla vulputate dui, nec tempus mauris erat eget ipsum. Suspendisse sagittis. Nullam vitae diam. Proin dolor. Nulla semper tellus id nunc interdum feugiat. Sed nec metus facilisis lorem tristique aliquet. Phasellus fermentum convallis ligula. Donec luctus aliquet odio. Etiam ligula tortor, dictum eu, placerat eget, venenatis a, magna. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam laoreet, libero et tristique pellentesque, tellus sem mollis dui, in sodales elit"
-	},
-	{
-		"name": "Bản tin tháng 7",
-		"description": "habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam fringilla cursus purus. Nullam scelerisque neque sed sem egestas blandit. Nam nulla magna, malesuada vel, convallis in, cursus et, eros. Proin ultrices. Duis volutpat nunc sit amet metus. Aliquam erat volutpat. Nulla facilisis. Suspendisse commodo tincidunt nibh. Phasellus nulla. Integer vulputate, risus a ultricies adipiscing, enim mi tempor lorem, eget mollis lectus pede et risus. Quisque libero lacus, varius et, euismod et, commodo at, libero. Morbi accumsan laoreet ipsum."
-	},
-	{
-		"name": "Bản tin tháng 8",
-		"description": "at, libero. Morbi accumsan laoreet ipsum. Curabitur consequat, lectus sit amet luctus vulputate, nisi sem semper erat, in consectetuer ipsum nunc id enim. Curabitur massa. Vestibulum accumsan neque et nunc. Quisque ornare tortor at risus. Nunc ac sem ut dolor dapibus gravida. Aliquam tincidunt, nunc ac mattis ornare, lectus ante dictum mi, ac mattis velit justo nec ante. Maecenas mi felis, adipiscing fringilla, porttitor vulputate, posuere vulputate, lacus. Cras interdum. Nunc sollicitudin commodo ipsum. Suspendisse"
-	},
-	{
-		"name": "Bản tin tháng 9",
-		"description": "parturient montes, nascetur ridiculus mus. Aenean eget magna. Suspendisse tristique neque venenatis lacus. Etiam bibendum fermentum metus. Aenean sed pede nec ante blandit viverra. Donec tempus, lorem fringilla ornare placerat, orci lacus vestibulum lorem, sit amet ultricies sem magna nec quam. Curabitur vel lectus. Cum sociis natoque penatibus et magnis dis"
-	},
-	{
-		"name": "Bản tin tháng 10",
-		"description": "ipsum ac mi eleifend egestas. Sed pharetra, felis eget varius ultrices, mauris ipsum porta elit, a feugiat tellus lorem eu metus. In lorem. Donec elementum, lorem ut aliquam iaculis, lacus pede sagittis augue, eu tempor erat neque non quam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam fringilla cursus purus. Nullam scelerisque neque sed sem egestas blandit. Nam nulla magna, malesuada vel, convallis in, cursus et, eros. Proin ultrices. Duis volutpat nunc sit amet metus. Aliquam erat volutpat. Nulla facilisis. Suspendisse commodo tincidunt nibh. Phasellus nulla. Integer vulputate, risus"
-	},
-	{
-		"name": "Bản tin tháng 11",
-		"description": "a tortor. Nunc commodo auctor velit. Aliquam nisl. Nulla eu neque pellentesque massa lobortis ultrices. Vivamus rhoncus. Donec est. Nunc ullamcorper, velit in aliquet lobortis, nisi nibh lacinia orci, consectetuer euismod est arcu ac orci. Ut semper pretium neque. Morbi quis urna. Nunc quis arcu vel quam dignissim pharetra. Nam ac nulla. In tincidunt congue turpis. In"
-	},
-	{
-		"name": "Bản tin tháng 12",
-		"description": "Mauris magna. Duis dignissim tempor arcu. Vestibulum ut eros non enim commodo hendrerit. Donec porttitor tellus non magna. Nam ligula elit, pretium et, rutrum non, hendrerit id, ante. Nunc mauris sapien, cursus in, hendrerit consectetuer, cursus et, magna. Praesent interdum ligula eu enim. Etiam imperdiet dictum magna. Ut tincidunt orci quis lectus. Nullam suscipit, est ac facilisis facilisis, magna tellus faucibus leo, in lobortis tellus justo sit amet nulla. Donec non"
-	}
+  {
+    "name": "Bản tin tháng 1",
+    "description": "Tháng 1 mở đầu với nhiều hoạt động đón chào năm mới và kỳ thi học kỳ. Nhà trường tổ chức lễ khai xuân và hội chợ xuân, cùng với các sự kiện văn nghệ đặc sắc. Các bạn sinh viên cần chú ý cập nhật thông tin về lịch thi và ôn tập để chuẩn bị tốt nhất cho kỳ thi sắp tới."
+  },
+  {
+    "name": "Bản tin tháng 2",
+    "description": "Tháng 2 đánh dấu sự kết thúc kỳ nghỉ Tết và khởi đầu học kỳ mới. Các hoạt động tư vấn học tập, hội thảo chuyên đề sẽ được tổ chức để giúp sinh viên nắm bắt thông tin học kỳ và chuẩn bị cho một năm học mới đầy hứa hẹn. Đừng bỏ lỡ các sự kiện quan trọng này nhé!"
+  },
+  {
+    "name": "Bản tin tháng 3",
+    "description": "Tháng 3 là tháng của Tháng Thanh niên, với nhiều hoạt động xã hội và tình nguyện. Các sự kiện lớn như Ngày hội tình nguyện, cuộc thi sáng tạo sinh viên, và các chương trình giao lưu văn hóa sẽ là cơ hội tuyệt vời để các bạn tham gia và đóng góp cho cộng đồng. Hãy tích cực tham gia để rèn luyện kỹ năng và tích lũy kinh nghiệm."
+  },
+  {
+    "name": "Bản tin tháng 4",
+    "description": "Tháng 4 sôi động với nhiều hoạt động thể thao và ngày hội việc làm. Các cuộc thi thể thao cấp trường và hội chợ việc làm sẽ mang đến nhiều cơ hội cho sinh viên giao lưu, học hỏi và khám phá các cơ hội việc làm tiềm năng. Đây là dịp để bạn thể hiện bản thân và tìm kiếm những cơ hội phát triển mới."
+  },
+  {
+    "name": "Bản tin tháng 5",
+    "description": "Tháng 5 là thời điểm sinh viên tập trung ôn thi và hoàn thành các dự án cuối kỳ. Nhà trường sẽ tổ chức các buổi hướng dẫn ôn tập và cung cấp tài liệu hỗ trợ để giúp các bạn chuẩn bị tốt cho kỳ thi sắp tới. Hãy tận dụng thời gian này để đạt được kết quả tốt nhất cho học kỳ này."
+  },
+  {
+    "name": "Bản tin tháng 6",
+    "description": "Tháng 6 là tháng của kỳ thi cuối kỳ và nhiều hoạt động ngoại khóa mùa hè. Các khóa học hè, chương trình thực tập và các hoạt động tình nguyện sẽ được tổ chức để giúp các bạn sinh viên tích lũy kiến thức và kinh nghiệm thực tế. Đừng quên lên kế hoạch cho một mùa hè thật ý nghĩa và bổ ích nhé!"
+  },
+  {
+    "name": "Bản tin tháng 7",
+    "description": "Tháng 7 là tháng của các khóa học hè và hoạt động tình nguyện. Đây là cơ hội để các bạn sinh viên bổ sung kiến thức và kỹ năng cho kỳ học sắp tới. Nhà trường cũng tổ chức nhiều chương trình tình nguyện và hoạt động xã hội để các bạn có thể tham gia và phát triển bản thân, đồng thời đóng góp cho cộng đồng."
+  },
+  {
+    "name": "Bản tin tháng 8",
+    "description": "Tháng 8 là thời điểm chuẩn bị cho năm học mới với nhiều hoạt động chào đón tân sinh viên. Các buổi tư vấn học tập, định hướng nghề nghiệp và các hoạt động ngoại khóa sẽ được tổ chức để giúp các bạn tân sinh viên nhanh chóng hòa nhập và chuẩn bị tốt nhất cho hành trình học tập mới. Hãy sẵn sàng để bắt đầu một năm học đầy hứng khởi và thành công!"
+  },
+  {
+    "name": "Bản tin tháng 9",
+    "description": "Tháng 9 là tháng khai giảng năm học mới với nhiều hoạt động học tập và ngoại khóa. Lễ khai giảng long trọng cùng các buổi giao lưu giữa sinh viên sẽ là cơ hội để các bạn làm quen và bắt đầu một năm học mới với nhiều kỳ vọng. Đây là thời gian để các bạn sinh viên nắm bắt thông tin và lập kế hoạch học tập cho năm học này."
+  },
+  {
+    "name": "Bản tin tháng 10",
+    "description": "Tháng 10 là thời gian của các cuộc thi học thuật và hoạt động nghiên cứu khoa học. Nhà trường tổ chức nhiều cuộc thi học thuật, hội thảo chuyên đề và các hoạt động nghiên cứu giúp sinh viên nâng cao kiến thức và kỹ năng nghiên cứu. Đây là cơ hội để bạn thể hiện khả năng và tích lũy thêm nhiều kinh nghiệm quý báu."
+  },
+  {
+    "name": "Bản tin tháng 11",
+    "description": "Tháng 11 là thời điểm chuẩn bị cho kỳ thi giữa kỳ và các hoạt động xã hội. Các buổi ôn thi, hội thảo chuyên đề và hoạt động ngoại khóa sẽ giúp sinh viên giảm bớt căng thẳng và rèn luyện kỹ năng cần thiết. Đừng bỏ lỡ các cơ hội tham gia hoạt động bổ ích này để chuẩn bị tốt cho kỳ thi sắp tới."
+  },
+  {
+    "name": "Bản tin tháng 12",
+    "description": "Tháng 12 là tháng của kỳ thi cuối kỳ và nhiều hoạt động mừng Giáng sinh. Nhà trường sẽ tổ chức các buổi ôn thi, cung cấp tài liệu học tập và nhiều sự kiện văn nghệ chào đón mùa lễ hội. Hãy tận dụng thời gian này để chuẩn bị tốt cho kỳ thi và tham gia các hoạt động vui chơi, giải trí để kết thúc năm học một cách thật ý nghĩa."
+  }
 ]

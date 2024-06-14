@@ -1,12 +1,23 @@
 from rest_framework import serializers
 
+from core.utils import validations
 from interacts.models import Comment
 from users import serializers as users_serializer
 
 
 class CommentSerializer(serializers.ModelSerializer):
-    account = users_serializer.AccountSerializer(read_only=True)
+	account = serializers.SerializerMethodField()
 
-    class Meta:
-        model = Comment
-        fields = ["id", "created_date", "updated_date", "content", "account"]
+	class Meta:
+		model = Comment
+		fields = ["id", "created_date", "updated_date", "content", "account"]
+
+	def get_account(self, comment):
+		instance_name = validations.check_account_role(comment.account)[1]
+		user = getattr(comment.account, instance_name, None)
+
+		serializer = users_serializer.AccountSerializer(comment.account, excludes=["user"])
+		data = serializer.data
+		data['full_name'] = user.full_name
+
+		return data

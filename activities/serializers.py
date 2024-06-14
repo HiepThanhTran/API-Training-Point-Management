@@ -7,167 +7,175 @@ from interacts.models import Like
 
 
 class BulletinSerializer(BaseSerializer):
-    class Meta:
-        model = Bulletin
-        fields = ["id", "name", "image", "created_date", "updated_date", "description"]
+	created_by = serializers.SerializerMethodField()
 
-    def to_representation(self, bulletin):
-        data = super().to_representation(bulletin)
-        image = data.get("image")
+	class Meta:
+		model = Bulletin
+		fields = ["id", "name", "image", "created_date", "updated_date", "description", "created_by"]
 
-        if "image" in self.fields and image:
-            data["image"] = bulletin.image.url
+	def to_representation(self, bulletin):
+		data = super().to_representation(bulletin)
+		image = data.get("image")
 
-        return data
+		if "image" in self.fields and image:
+			data["image"] = bulletin.image.url
 
-    def create(self, validated_data):
-        request = self.context.get("request")
+		return data
 
-        instance_name = validations.check_account_role(request.user)[1]
-        validated_data["poster"] = getattr(request.user, instance_name, None)
-        bulletin = Bulletin.objects.create(**validated_data)
+	def create(self, validated_data):
+		request = self.context.get("request")
 
-        image = validated_data.pop("image", None)
-        bulletin.image = factory.get_or_upload_image(file=image, public_id=f"bulletin-{bulletin.id}" if image else None, ftype="bulletin")
-        bulletin.save()
+		instance_name = validations.check_account_role(request.user)[1]
+		validated_data["poster"] = getattr(request.user, instance_name, None)
+		bulletin = Bulletin.objects.create(**validated_data)
 
-        return bulletin
+		image = validated_data.pop("image", None)
+		bulletin.image = factory.get_or_upload_image(file=image, public_id=f"bulletin-{bulletin.id}" if image else None, ftype="bulletin")
+		bulletin.save()
 
-    def update(self, bulletin, validated_data):
-        image = validated_data.get("image", None)
-        if image:
-            validated_data["image"] = factory.get_or_upload_image(file=image, public_id=f"bulletin-{bulletin.id}")
+		return bulletin
 
-        for key, value in validated_data.items():
-            setattr(bulletin, key, value)
-        bulletin.save()
+	def update(self, bulletin, validated_data):
+		image = validated_data.get("image", None)
+		if image:
+			validated_data["image"] = factory.get_or_upload_image(file=image, public_id=f"bulletin-{bulletin.id}")
 
-        return bulletin
+		for key, value in validated_data.items():
+			setattr(bulletin, key, value)
+		bulletin.save()
 
+		return bulletin
 
-class BulletinDetailsSerialzer(BulletinSerializer):
-    created_by = serializers.SerializerMethodField()
+	def get_created_by(self, bulletin):
+		serializer_class, role = validations.check_user_instance(bulletin.poster)
+		serializer = serializer_class(bulletin.poster, excludes=["code"])
 
-    class Meta:
-        model = BulletinSerializer.Meta.model
-        fields = BulletinSerializer.Meta.fields + ["created_by"]
+		data = serializer.data
+		data['role'] = role
+		data['avatar'] = bulletin.poster.account.avatar.url if bulletin.poster.account else None
 
-    def get_created_by(self, bulletin):
-        serializer_class = validations.check_user_instance(bulletin.poster)[0]
-        return serializer_class(bulletin.poster).data
+		return data
 
 
 class ActivitySerializer(BaseSerializer):
-    total_likes = serializers.SerializerMethodField()
+	total_likes = serializers.SerializerMethodField()
+	created_by = serializers.SerializerMethodField()
 
-    class Meta:
-        model = Activity
-        fields = [
-            "id", "name", "participant", "start_date", "end_date",
-            "location", "point", "updated_date", "created_date",
-            "bulletin", "faculty", "semester", "criterion",
-            "image", "organizational_form", "total_likes", "description"
-        ]
+	class Meta:
+		model = Activity
+		fields = [
+			"id", "name", "participant", "start_date", "end_date",
+			"location", "point", "updated_date", "created_date",
+			"bulletin", "faculty", "semester", "criterion",
+			"image", "organizational_form", "total_likes", "description", "created_by"
+		]
 
-    def to_representation(self, activity):
-        data = super().to_representation(activity)
-        image = data.get("image", None)
+	def to_representation(self, activity):
+		data = super().to_representation(activity)
+		image = data.get("image", None)
 
-        if "image" in self.fields and image:
-            data["image"] = activity.image.url
-        if "bulletin" in self.fields and activity.bulletin:
-            data["bulletin"] = f"{activity.bulletin}"
-        if "faculty" in self.fields and activity.faculty:
-            data["faculty"] = f"{activity.faculty}"
-        if "semester" in self.fields and activity.semester:
-            data["semester"] = f"{activity.semester}"
-        if "criterion" in self.fields and activity.criterion:
-            data["criterion"] = f"{activity.criterion}"
+		if "image" in self.fields and image:
+			data["image"] = activity.image.url
+		if "bulletin" in self.fields and activity.bulletin:
+			data["bulletin"] = f"{activity.bulletin}"
+		if "faculty" in self.fields and activity.faculty:
+			data["faculty"] = f"{activity.faculty}"
+		if "semester" in self.fields and activity.semester:
+			data["semester"] = f"{activity.semester}"
+		if "criterion" in self.fields and activity.criterion:
+			data["criterion"] = f"{activity.criterion}"
 
-        return data
+		return data
 
-    def create(self, validated_data):
-        request = self.context.get("request")
+	def create(self, validated_data):
+		request = self.context.get("request")
 
-        instance_name = validations.check_account_role(request.user)[1]
-        validated_data["organizer"] = getattr(request.user, instance_name, None)
-        activity = Activity.objects.create(**validated_data)
+		instance_name = validations.check_account_role(request.user)[1]
+		validated_data["organizer"] = getattr(request.user, instance_name, None)
+		activity = Activity.objects.create(**validated_data)
 
-        image = validated_data.get("image", None)
-        activity.image = factory.get_or_upload_image(file=image, public_id=f"activity-{activity.id}" if image else None, ftype="activity")
-        activity.save()
+		image = validated_data.get("image", None)
+		activity.image = factory.get_or_upload_image(file=image, public_id=f"activity-{activity.id}" if image else None, ftype="activity")
+		activity.save()
 
-        return activity
+		return activity
 
-    def update(self, activity, validated_data):
-        image = validated_data.get("image", None)
-        if image:
-            validated_data["image"] = factory.get_or_upload_image(file=image, public_id=f"activity-{activity.id}", ftype="activity")
+	def update(self, activity, validated_data):
+		image = validated_data.get("image", None)
+		if image:
+			validated_data["image"] = factory.get_or_upload_image(file=image, public_id=f"activity-{activity.id}", ftype="activity")
 
-        for key, value in validated_data.items():
-            setattr(activity, key, value)
-        activity.save()
+		for key, value in validated_data.items():
+			setattr(activity, key, value)
+		activity.save()
 
-        return activity
+		return activity
 
-    def get_total_likes(self, activity):
-        return activity.likes.filter(is_active=True).count()
+	def get_created_by(self, activity):
+		serializer_class, role = validations.check_user_instance(activity.organizer)
+		serializer = serializer_class(activity.organizer, excludes=["code"])
+
+		data = serializer.data
+		data['role'] = role
+		data['avatar'] = activity.organizer.account.avatar.url if activity.organizer.account else None
+
+		return data
+
+	def get_total_likes(self, activity):
+		return activity.likes.filter(is_active=True).count()
 
 
 class AuthenticatedActivitySerializer(ActivitySerializer):
-    liked = serializers.SerializerMethodField()
+	liked = serializers.SerializerMethodField()
+	registered = serializers.SerializerMethodField()
 
-    class Meta:
-        model = ActivitySerializer.Meta.model
-        fields = ActivitySerializer.Meta.fields + ["liked"]
+	class Meta:
+		model = ActivitySerializer.Meta.model
+		fields = ActivitySerializer.Meta.fields + ["liked", "registered"]
 
-    def get_liked(self, activity):
-        request = self.context.get("request")
+	def get_liked(self, activity):
+		request = self.context.get("request")
 
-        try:
-            like = Like.objects.get(account=request.user, activity=activity)
-        except Like.DoesNotExist:
-            return False
+		try:
+			like = Like.objects.get(account=request.user, activity=activity)
+		except Like.DoesNotExist:
+			return False
 
-        return like.is_active
+		return like.is_active
 
+	def get_registered(self, activity):
+		request = self.context.get("request")
 
-class AuthenticatedActivityDetailsSerializer(AuthenticatedActivitySerializer):
-    created_by = serializers.SerializerMethodField()
+		instance_name = validations.check_account_role(request.user)[1]
+		user = getattr(request.user, instance_name, None)
 
-    class Meta:
-        model = ActivitySerializer.Meta.model
-        fields = AuthenticatedActivitySerializer.Meta.fields + ["created_by"]
-
-    def get_created_by(self, activity):
-        serializer_class = validations.check_user_instance(activity.organizer)[0]
-        return serializer_class(activity.organizer).data
+		return activity.participants.filter(pk=user.id).exists()
 
 
 class ActivityRegistrationSerializer(BaseSerializer):
-    from users import serializers as user_serializers
-    student = user_serializers.StudentSerializer()
-    activity = ActivitySerializer()
+	from users import serializers as user_serializers
+	student = user_serializers.StudentSerializer()
+	activity = ActivitySerializer()
 
-    class Meta:
-        model = ActivityRegistration
-        fields = ["id", "is_attendance", "is_point_added", "created_date", "updated_date", "student", "activity", ]
+	class Meta:
+		model = ActivityRegistration
+		fields = ["id", "is_attendance", "is_point_added", "created_date", "updated_date", "student", "activity", ]
 
 
 class MissingActivityReportSerializer(BaseSerializer):
-    from users import serializers as user_serializers
-    student = user_serializers.StudentSerializer()
-    activity = ActivitySerializer()
+	from users import serializers as user_serializers
+	student = user_serializers.StudentSerializer()
+	activity = ActivitySerializer()
 
-    class Meta:
-        model = MissingActivityReport
-        fields = ["id", "is_resolved", "evidence", "created_date", "updated_date", "content", "student", "activity", ]
+	class Meta:
+		model = MissingActivityReport
+		fields = ["id", "is_resolved", "evidence", "created_date", "updated_date", "content", "student", "activity", ]
 
-    def to_representation(self, instance):
-        data = super().to_representation(instance)
+	def to_representation(self, instance):
+		data = super().to_representation(instance)
 
-        evidence = data.get("evidence", None)
-        if "evidence" in self.fields and evidence:
-            data["evidence"] = instance.evidence.url
+		evidence = data.get("evidence", None)
+		if "evidence" in self.fields and evidence:
+			data["evidence"] = instance.evidence.url
 
-        return data
+		return data

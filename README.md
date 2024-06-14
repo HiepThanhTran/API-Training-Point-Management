@@ -1,13 +1,13 @@
 # Training Point Management
 
-This is the topic of training point management in my subject "Modern programming technologies" using Django RestAPI for Backend, and React Native for Frontend
+Welcome to the Training Point Management Mobile App repository! This app is designed for managing training points using modern programming technologies such as Django RestAPI for Backend and React Native for Frontend.
 
 ## Installation
 
 1 : Clone the project
 
 ```shell
-git clone https://github.com/HiepThanhTran/Training-Point-Management.git
+git clone https://github.com/HiepThanhTran/TPM-API.git
 ```
 
 2 : Open project with pycharm

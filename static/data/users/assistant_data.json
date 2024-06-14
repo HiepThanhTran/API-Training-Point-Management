@@ -1,252 +1,252 @@
 [
-	{
-		"first_name": "asst1",
-		"middle_name": "Alika",
-		"last_name": "Forbes",
-		"date_of_birth": "2004-07-30",
-		"address": "P.O. Box 964, 7763 Nec St.",
-		"phone_number": "0977294541",
-		"gender": "M",
-		"faculty_id": 1
-	},
-	{
-		"first_name": "asst2",
-		"middle_name": "Jayme",
-		"last_name": "Powell",
-		"date_of_birth": "2004-09-11",
-		"address": "Ap #484-4505 Suspendisse Rd.",
-		"phone_number": "0925735826",
-		"gender": "M",
-		"faculty_id": 1
-	},
-	{
-		"first_name": "asst3",
-		"middle_name": "Peter",
-		"last_name": "Dean",
-		"date_of_birth": "2004-02-21",
-		"address": "P.O. Box 685, 5099 Quam Road",
-		"phone_number": "0622963965",
-		"gender": "M",
-		"faculty_id": 1
-	},
-	{
-		"first_name": "asst4",
-		"middle_name": "Cherokee",
-		"last_name": "Kline",
-		"date_of_birth": "2006-06-06",
-		"address": "Ap #726-8732 Lorem St.",
-		"phone_number": "0844170611",
-		"gender": "F",
-		"faculty_id": 1
-	},
-	{
-		"first_name": "asst5",
-		"middle_name": "Edward",
-		"last_name": "Salinas",
-		"date_of_birth": "2006-12-21",
-		"address": "Ap #748-9083 Ridiculus Avenue",
-		"phone_number": "0961163888",
-		"gender": "F",
-		"faculty_id": 1
-	},
-	{
-		"first_name": "asst6",
-		"middle_name": "Alika",
-		"last_name": "Forbes",
-		"date_of_birth": "2004-07-30",
-		"address": "P.O. Box 964, 7763 Nec St.",
-		"phone_number": "0977294541",
-		"gender": "M",
-		"faculty_id": 2
-	},
-	{
-		"first_name": "asst7",
-		"middle_name": "Jayme",
-		"last_name": "Powell",
-		"date_of_birth": "2004-09-11",
-		"address": "Ap #484-4505 Suspendisse Rd.",
-		"phone_number": "0925735826",
-		"gender": "M",
-		"faculty_id": 2
-	},
-	{
-		"first_name": "asst8",
-		"middle_name": "Peter",
-		"last_name": "Dean",
-		"date_of_birth": "2004-02-21",
-		"address": "P.O. Box 685, 5099 Quam Road",
-		"phone_number": "0622963965",
-		"gender": "M",
-		"faculty_id": 2
-	},
-	{
-		"first_name": "asst9",
-		"middle_name": "Cherokee",
-		"last_name": "Kline",
-		"date_of_birth": "2006-06-06",
-		"address": "Ap #726-8732 Lorem St.",
-		"phone_number": "0844170611",
-		"gender": "F",
-		"faculty_id": 2
-	},
-	{
-		"first_name": "asst10",
-		"middle_name": "Edward",
-		"last_name": "Salinas",
-		"date_of_birth": "2006-12-21",
-		"address": "Ap #748-9083 Ridiculus Avenue",
-		"phone_number": "0961163888",
-		"gender": "F",
-		"faculty_id": 2
-	},
-	{
-		"first_name": "asst11",
-		"middle_name": "Alika",
-		"last_name": "Forbes",
-		"date_of_birth": "2004-07-30",
-		"address": "P.O. Box 964, 7763 Nec St.",
-		"phone_number": "0977294541",
-		"gender": "M",
-		"faculty_id": 3
-	},
-	{
-		"first_name": "asst12",
-		"middle_name": "Jayme",
-		"last_name": "Powell",
-		"date_of_birth": "2004-09-11",
-		"address": "Ap #484-4505 Suspendisse Rd.",
-		"phone_number": "0925735826",
-		"gender": "M",
-		"faculty_id": 3
-	},
-	{
-		"first_name": "asst13",
-		"middle_name": "Peter",
-		"last_name": "Dean",
-		"date_of_birth": "2004-02-21",
-		"address": "P.O. Box 685, 5099 Quam Road",
-		"phone_number": "0622963965",
-		"gender": "M",
-		"faculty_id": 3
-	},
-	{
-		"first_name": "asst14",
-		"middle_name": "Cherokee",
-		"last_name": "Kline",
-		"date_of_birth": "2006-06-06",
-		"address": "Ap #726-8732 Lorem St.",
-		"phone_number": "0844170611",
-		"gender": "F",
-		"faculty_id": 3
-	},
-	{
-		"first_name": "asst15",
-		"middle_name": "Edward",
-		"last_name": "Salinas",
-		"date_of_birth": "2006-12-21",
-		"address": "Ap #748-9083 Ridiculus Avenue",
-		"phone_number": "0961163888",
-		"gender": "F",
-		"faculty_id": 3
-	},
-	{
-		"first_name": "asst16",
-		"middle_name": "Alika",
-		"last_name": "Forbes",
-		"date_of_birth": "2004-07-30",
-		"address": "P.O. Box 964, 7763 Nec St.",
-		"phone_number": "0977294541",
-		"gender": "M",
-		"faculty_id": 4
-	},
-	{
-		"first_name": "asst17",
-		"middle_name": "Jayme",
-		"last_name": "Powell",
-		"date_of_birth": "2004-09-11",
-		"address": "Ap #484-4505 Suspendisse Rd.",
-		"phone_number": "0925735826",
-		"gender": "M",
-		"faculty_id": 4
-	},
-	{
-		"first_name": "asst18",
-		"middle_name": "Peter",
-		"last_name": "Dean",
-		"date_of_birth": "2004-02-21",
-		"address": "P.O. Box 685, 5099 Quam Road",
-		"phone_number": "0622963965",
-		"gender": "M",
-		"faculty_id": 4
-	},
-	{
-		"first_name": "asst19",
-		"middle_name": "Cherokee",
-		"last_name": "Kline",
-		"date_of_birth": "2006-06-06",
-		"address": "Ap #726-8732 Lorem St.",
-		"phone_number": "0844170611",
-		"gender": "F",
-		"faculty_id": 4
-	},
-	{
-		"first_name": "asst20",
-		"middle_name": "Edward",
-		"last_name": "Salinas",
-		"date_of_birth": "2006-12-21",
-		"address": "Ap #748-9083 Ridiculus Avenue",
-		"phone_number": "0961163888",
-		"gender": "F",
-		"faculty_id": 4
-	},
-	{
-		"first_name": "asst21",
-		"middle_name": "Alika",
-		"last_name": "Forbes",
-		"date_of_birth": "2004-07-30",
-		"address": "P.O. Box 964, 7763 Nec St.",
-		"phone_number": "0977294541",
-		"gender": "M",
-		"faculty_id": 5
-	},
-	{
-		"first_name": "asst22",
-		"middle_name": "Jayme",
-		"last_name": "Powell",
-		"date_of_birth": "2004-09-11",
-		"address": "Ap #484-4505 Suspendisse Rd.",
-		"phone_number": "0925735826",
-		"gender": "M",
-		"faculty_id": 5
-	},
-	{
-		"first_name": "asst23",
-		"middle_name": "Peter",
-		"last_name": "Dean",
-		"date_of_birth": "2004-02-21",
-		"address": "P.O. Box 685, 5099 Quam Road",
-		"phone_number": "0622963965",
-		"gender": "M",
-		"faculty_id": 5
-	},
-	{
-		"first_name": "asst24",
-		"middle_name": "Cherokee",
-		"last_name": "Kline",
-		"date_of_birth": "2006-06-06",
-		"address": "Ap #726-8732 Lorem St.",
-		"phone_number": "0844170611",
-		"gender": "F",
-		"faculty_id": 5
-	},
-	{
-		"first_name": "asst25",
-		"middle_name": "Edward",
-		"last_name": "Salinas",
-		"date_of_birth": "2006-12-21",
-		"address": "Ap #748-9083 Ridiculus Avenue",
-		"phone_number": "0961163888",
-		"gender": "F",
-		"faculty_id": 5
-	}
+  {
+    "first_name": "asst1",
+    "middle_name": "Alika",
+    "last_name": "Forbes",
+    "date_of_birth": "2004-07-30",
+    "address": "P.O. Box 964, 7763 Nec St.",
+    "phone_number": "0977294541",
+    "gender": "M",
+    "faculty_id": 1
+  },
+  {
+    "first_name": "asst2",
+    "middle_name": "Jayme",
+    "last_name": "Powell",
+    "date_of_birth": "2004-09-11",
+    "address": "Ap #484-4505 Suspendisse Rd.",
+    "phone_number": "0925735826",
+    "gender": "M",
+    "faculty_id": 1
+  },
+  {
+    "first_name": "asst3",
+    "middle_name": "Peter",
+    "last_name": "Dean",
+    "date_of_birth": "2004-02-21",
+    "address": "P.O. Box 685, 5099 Quam Road",
+    "phone_number": "0622963965",
+    "gender": "M",
+    "faculty_id": 1
+  },
+  {
+    "first_name": "asst4",
+    "middle_name": "Cherokee",
+    "last_name": "Kline",
+    "date_of_birth": "2006-06-06",
+    "address": "Ap #726-8732 Lorem St.",
+    "phone_number": "0844170611",
+    "gender": "F",
+    "faculty_id": 1
+  },
+  {
+    "first_name": "asst5",
+    "middle_name": "Edward",
+    "last_name": "Salinas",
+    "date_of_birth": "2006-12-21",
+    "address": "Ap #748-9083 Ridiculus Avenue",
+    "phone_number": "0961163888",
+    "gender": "F",
+    "faculty_id": 1
+  },
+  {
+    "first_name": "asst6",
+    "middle_name": "Alika",
+    "last_name": "Forbes",
+    "date_of_birth": "2004-07-30",
+    "address": "P.O. Box 964, 7763 Nec St.",
+    "phone_number": "0977294541",
+    "gender": "M",
+    "faculty_id": 2
+  },
+  {
+    "first_name": "asst7",
+    "middle_name": "Jayme",
+    "last_name": "Powell",
+    "date_of_birth": "2004-09-11",
+    "address": "Ap #484-4505 Suspendisse Rd.",
+    "phone_number": "0925735826",
+    "gender": "M",
+    "faculty_id": 2
+  },
+  {
+    "first_name": "asst8",
+    "middle_name": "Peter",
+    "last_name": "Dean",
+    "date_of_birth": "2004-02-21",
+    "address": "P.O. Box 685, 5099 Quam Road",
+    "phone_number": "0622963965",
+    "gender": "M",
+    "faculty_id": 2
+  },
+  {
+    "first_name": "asst9",
+    "middle_name": "Cherokee",
+    "last_name": "Kline",
+    "date_of_birth": "2006-06-06",
+    "address": "Ap #726-8732 Lorem St.",
+    "phone_number": "0844170611",
+    "gender": "F",
+    "faculty_id": 2
+  },
+  {
+    "first_name": "asst10",
+    "middle_name": "Edward",
+    "last_name": "Salinas",
+    "date_of_birth": "2006-12-21",
+    "address": "Ap #748-9083 Ridiculus Avenue",
+    "phone_number": "0961163888",
+    "gender": "F",
+    "faculty_id": 2
+  },
+  {
+    "first_name": "asst11",
+    "middle_name": "Alika",
+    "last_name": "Forbes",
+    "date_of_birth": "2004-07-30",
+    "address": "P.O. Box 964, 7763 Nec St.",
+    "phone_number": "0977294541",
+    "gender": "M",
+    "faculty_id": 3
+  },
+  {
+    "first_name": "asst12",
+    "middle_name": "Jayme",
+    "last_name": "Powell",
+    "date_of_birth": "2004-09-11",
+    "address": "Ap #484-4505 Suspendisse Rd.",
+    "phone_number": "0925735826",
+    "gender": "M",
+    "faculty_id": 3
+  },
+  {
+    "first_name": "asst13",
+    "middle_name": "Peter",
+    "last_name": "Dean",
+    "date_of_birth": "2004-02-21",
+    "address": "P.O. Box 685, 5099 Quam Road",
+    "phone_number": "0622963965",
+    "gender": "M",
+    "faculty_id": 3
+  },
+  {
+    "first_name": "asst14",
+    "middle_name": "Cherokee",
+    "last_name": "Kline",
+    "date_of_birth": "2006-06-06",
+    "address": "Ap #726-8732 Lorem St.",
+    "phone_number": "0844170611",
+    "gender": "F",
+    "faculty_id": 3
+  },
+  {
+    "first_name": "asst15",
+    "middle_name": "Edward",
+    "last_name": "Salinas",
+    "date_of_birth": "2006-12-21",
+    "address": "Ap #748-9083 Ridiculus Avenue",
+    "phone_number": "0961163888",
+    "gender": "F",
+    "faculty_id": 3
+  },
+  {
+    "first_name": "asst16",
+    "middle_name": "Alika",
+    "last_name": "Forbes",
+    "date_of_birth": "2004-07-30",
+    "address": "P.O. Box 964, 7763 Nec St.",
+    "phone_number": "0977294541",
+    "gender": "M",
+    "faculty_id": 4
+  },
+  {
+    "first_name": "asst17",
+    "middle_name": "Jayme",
+    "last_name": "Powell",
+    "date_of_birth": "2004-09-11",
+    "address": "Ap #484-4505 Suspendisse Rd.",
+    "phone_number": "0925735826",
+    "gender": "M",
+    "faculty_id": 4
+  },
+  {
+    "first_name": "asst18",
+    "middle_name": "Peter",
+    "last_name": "Dean",
+    "date_of_birth": "2004-02-21",
+    "address": "P.O. Box 685, 5099 Quam Road",
+    "phone_number": "0622963965",
+    "gender": "M",
+    "faculty_id": 4
+  },
+  {
+    "first_name": "asst19",
+    "middle_name": "Cherokee",
+    "last_name": "Kline",
+    "date_of_birth": "2006-06-06",
+    "address": "Ap #726-8732 Lorem St.",
+    "phone_number": "0844170611",
+    "gender": "F",
+    "faculty_id": 4
+  },
+  {
+    "first_name": "asst20",
+    "middle_name": "Edward",
+    "last_name": "Salinas",
+    "date_of_birth": "2006-12-21",
+    "address": "Ap #748-9083 Ridiculus Avenue",
+    "phone_number": "0961163888",
+    "gender": "F",
+    "faculty_id": 4
+  },
+  {
+    "first_name": "asst21",
+    "middle_name": "Alika",
+    "last_name": "Forbes",
+    "date_of_birth": "2004-07-30",
+    "address": "P.O. Box 964, 7763 Nec St.",
+    "phone_number": "0977294541",
+    "gender": "M",
+    "faculty_id": 5
+  },
+  {
+    "first_name": "asst22",
+    "middle_name": "Jayme",
+    "last_name": "Powell",
+    "date_of_birth": "2004-09-11",
+    "address": "Ap #484-4505 Suspendisse Rd.",
+    "phone_number": "0925735826",
+    "gender": "M",
+    "faculty_id": 5
+  },
+  {
+    "first_name": "asst23",
+    "middle_name": "Peter",
+    "last_name": "Dean",
+    "date_of_birth": "2004-02-21",
+    "address": "P.O. Box 685, 5099 Quam Road",
+    "phone_number": "0622963965",
+    "gender": "M",
+    "faculty_id": 5
+  },
+  {
+    "first_name": "asst24",
+    "middle_name": "Cherokee",
+    "last_name": "Kline",
+    "date_of_birth": "2006-06-06",
+    "address": "Ap #726-8732 Lorem St.",
+    "phone_number": "0844170611",
+    "gender": "F",
+    "faculty_id": 5
+  },
+  {
+    "first_name": "asst25",
+    "middle_name": "Edward",
+    "last_name": "Salinas",
+    "date_of_birth": "2006-12-21",
+    "address": "Ap #748-9083 Ridiculus Avenue",
+    "phone_number": "0961163888",
+    "gender": "F",
+    "faculty_id": 5
+  }
 ]

@@ -2,6 +2,11 @@
 const semesterSelect = document.getElementById("semester-select")
 const facultySelect = document.getElementById("faculty-select")
 const classSelect = document.getElementById("class-select")
+// Button export
+const facultyExportPDF = document.getElementById("faculty-export-pdf")
+const facultyExportCSV = document.getElementById("faculty-export-csv")
+const classExportPDF = document.getElementById("class-export-pdf")
+const classExportCSV = document.getElementById("class-export-csv")
 // Faculty
 const totalClassesFaculty = document.querySelector(".total-classes-faculty p")
 const totalStudentsFaculty = document.querySelector(".total-students-faculty p")
@@ -12,22 +17,44 @@ const totalStudentsClass = document.querySelector(".total-students-class p")
 const totalPointsClass = document.querySelector(".total-points-class p")
 const averagePointsClass = document.querySelector(".average-points-class p")
 
-async function fetchApiToGetStatistics(url) {
+const fetchApi = async (url, expectedContentType = 'application/json') => {
     showPreLoading();
-    const response = await fetch(url, {method: 'GET', headers: {'Content-Type': 'application/json'}});
-    hidePreLoading();
-    return response.ok ? response.json() : new Error('API request failed');
+    try {
+        const response = await fetch(url, {method: 'GET'});
+
+        if (!response.ok) {
+            throw new Error(`API request failed with status ${response.status}`);
+        }
+
+        const contentType = response.headers.get('Content-Type');
+        if (contentType && contentType.includes(expectedContentType))
+            if (expectedContentType === 'application/json') return response.json();
+            else return {
+                blob: await response.blob(),
+                contentDisposition: response.headers.get('Content-Disposition')
+            };
+        else throw new Error(`Unsupported content type: ${contentType}`);
+    } catch (error) {
+        console.error(error);
+        throw error;
+    } finally {
+        hidePreLoading();
+    }
 }
 
-window.onload = async (event) => {
-    const [ctxLeft, ctxRight] = [document.getElementById("chartFaculty").getContext("2d"), document.getElementById("chartClass").getContext("2d")];
-    let chartFaculty = generateChart(ctxLeft, 'bar', "Điểm rèn luyện theo khoa", labelsLeft, dataLeft, bgColorsLeft, borderColorsLeft)
-    let chartClass = generateChart(ctxRight, 'bar', "Điểm rèn luyện theo lớp", labelsRight, dataRight, bgColorsRight, borderColorsRight)
+window.onload = (event) => {
+    const ctxChartStatistics = document.getElementById("chartStatistics").getContext("2d")
+    let chartStatistics = generateChart(
+        ctxChartStatistics, 'bar', labelsOfFaculty || labelsOfClass,
+        "Điểm rèn luyện theo khoa", dataOfFaculty, bgColorsOfFaculty, borderColorsOfFaculty,
+        "Điểm rèn luyện theo lớp", dataOfClass, bgColorsOfClass, borderColorsOfClass
+    )
 
-    semesterSelect.addEventListener("change", async () => updateStatistics(chartClass, chartFaculty));
+    semesterSelect.addEventListener("change", () => updateStatistics(chartStatistics, true));
+    classSelect.addEventListener("change", () => updateStatistics(chartStatistics));
     facultySelect.addEventListener("change", async () => {
         const facultyId = facultySelect.value;
-        const classes = await fetchApiToGetStatistics(`/api/v1/classes/?faculty_id=${facultyId}`);
+        const classes = await fetchApi(`/api/v1/classes/?faculty_id=${facultyId}`);
         classSelect.innerHTML = '';
         classes.forEach(sclass => {
             const option = document.createElement('option');
@@ -35,52 +62,99 @@ window.onload = async (event) => {
             option.text = sclass.name;
             classSelect.appendChild(option);
         });
-        await updateStatistics(chartClass, chartFaculty);
+        await updateStatistics(chartStatistics, true);
     });
-    classSelect.addEventListener("change", async () => updateStatistics(chartClass));
+
+    facultyExportPDF.addEventListener("click", () => exportFile('pdf', true))
+    facultyExportCSV.addEventListener("click", () => exportFile('csv', true))
+    classExportPDF.addEventListener("click", () => exportFile('pdf'))
+    classExportCSV.addEventListener("click", () => exportFile('csv'))
 };
 
-async function updateStatistics(chartClass, chartFaculty = null) {
+const updateStatistics = async (chartStatistics, isFaculty = false) => {
     const semesterCode = semesterSelect.value;
     const facultyId = facultySelect.value;
     const classId = classSelect.value;
 
-    if (chartFaculty !== null) {
-        const statisticsFaculty = await fetchApiToGetStatistics(`/api/v1/statistics/${semesterCode}/points/?faculty_id=${facultyId}`);
-        updateChart(chartFaculty, statisticsFaculty);
+    if (isFaculty === true) {
+        const url = `/api/v1/statistics/${semesterCode}/points/?faculty_id=${facultyId}`
+        const statisticsFaculty = await fetchApi(url);
+        updateChart(chartStatistics, statisticsFaculty, isFaculty);
         updateStatisticsFaculty(statisticsFaculty);
     }
 
-    const statisticsClass = await fetchApiToGetStatistics(`/api/v1/statistics/${semesterCode}/points/?faculty_id=${facultyId}&class_id=${classId}`);
-    updateChart(chartClass, statisticsClass);
+    const url = `/api/v1/statistics/${semesterCode}/points/?faculty_id=${facultyId}&class_id=${classId}`
+    const statisticsClass = await fetchApi(url);
+    updateChart(chartStatistics, statisticsClass);
     updateStatisticsClass(statisticsClass);
 }
 
-function updateStatisticsFaculty(statisticsFaculty) {
+const updateStatisticsFaculty = (statisticsFaculty) => {
     totalClassesFaculty.innerHTML = statisticsFaculty.total_classes
     totalStudentsFaculty.innerHTML = statisticsFaculty.total_students
     totalPointsFaculty.innerHTML = statisticsFaculty.total_points
     averagePointsFaculty.innerHTML = statisticsFaculty.average_points
 }
 
-function updateStatisticsClass(statisticsClass) {
+const updateStatisticsClass = (statisticsClass) => {
     totalStudentsClass.innerHTML = statisticsClass.total_students
     totalPointsClass.innerHTML = statisticsClass.total_points
     averagePointsClass.innerHTML = statisticsClass.average_points
 }
 
-function updateChart(chart, data) {
-    const [labels, dataPoints, bgColors, borderColors] = [[], [], [], []];
-    let color;
+const updateChart = (chart, data, isFaculty = false) => {
+    const [dataPoints, bgColors, borderColors] = [[], [], []];
+
     for (let key in data.achievements) {
+        const {color, borderColor} = generateRandomColor();
         dataPoints.push(data.achievements[key]);
-        color = generateRandomColor();
-        bgColors.push(color.color);
-        borderColors.push(color.borderColor);
+        bgColors.push(color);
+        borderColors.push(borderColor);
     }
-    chart.data.datasets[0].data = dataPoints;
-    chart.data.datasets[1].data = dataPoints;
-    chart.data.datasets[0].backgroundColor = bgColors;
-    chart.data.datasets[0].borderColor = borderColors;
+
+    const datasetIndex = isFaculty === true ? 0 : 1;
+    Object.assign(chart.data.datasets[datasetIndex], {
+        data: dataPoints, backgroundColor: bgColors, borderColor: borderColors
+    });
     chart.update();
+}
+
+const exportFile = async (typeFile, isFaculty = false) => {
+    const semesterCode = semesterSelect.value;
+    const classId = classSelect.value;
+
+    let url = `/api/v1/statistics/${semesterCode}/export/?type=${typeFile}&class_id=${classId}`;
+    if (isFaculty === true) {
+        const facultyId = facultySelect.value;
+        url += `&faculty_id=${facultyId}`;
+    }
+
+    let expectedContentType = 'text/csv';
+    if (typeFile === 'pdf') {
+        expectedContentType = 'application/pdf';
+    }
+
+    try {
+        const { blob, contentDisposition} = await fetchApi(url, expectedContentType);
+
+        let fileName = "downloaded_file";
+        if (contentDisposition) {
+            const match = contentDisposition.match(/filename="?(.+)"?/);
+            if (match && match[1]) fileName = match[1];
+        }
+
+        const blobUrl = URL.createObjectURL(blob);
+
+        const link = document.createElement('a');
+        link.href = blobUrl;
+        link.target = "_blank"
+        link.download = fileName
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+
+        URL.revokeObjectURL(blobUrl);
+    } catch (error) {
+        console.error("Failed to export file:", error);
+    }
 }

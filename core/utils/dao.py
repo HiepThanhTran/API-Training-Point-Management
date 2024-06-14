@@ -5,13 +5,14 @@ from schools.models import TrainingPoint
 
 
 def get_statistics(semester=None, faculty=None, sclass=None):
-	if faculty and not sclass:
+	if faculty:
 		return statistics_by_entity(semester=semester, entity=faculty, entity_type="faculty")
 
 	return statistics_by_entity(semester=semester, entity=sclass, entity_type="class")
 
 
 def statistics_by_entity(semester=None, entity=None, entity_type="class"):
+	achievement_order = {achievement: index for index, achievement in enumerate(ACHIEVEMENTS[::-1], start=1)}
 	achievements = {achievement: 0 for achievement in ACHIEVEMENTS}
 	total_students, total_points = 0, 0
 	students_summary_list = []
@@ -24,6 +25,11 @@ def statistics_by_entity(semester=None, entity=None, entity_type="class"):
 		achievements[student_summary["achievement"]] += 1
 		students_summary_list.append(student_summary)
 	average_points = round(total_points / total_students if total_students > 0 else 0, 2)
+
+	students_summary_list.sort(
+		key=lambda x: achievement_order[x["achievement"]],
+		reverse=True
+	)
 
 	statistics_data = {
 		"id": entity.id,

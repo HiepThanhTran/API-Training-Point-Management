@@ -5,17 +5,17 @@ from core.base.models import BaseModel
 
 
 class Interaction(BaseModel):
-    class Meta:
-        abstract = True
+	class Meta:
+		abstract = True
 
-    account = models.ForeignKey(to="users.Account", on_delete=models.CASCADE, related_name="%(class)ss")
-    activity = models.ForeignKey(to="activities.Activity", on_delete=models.CASCADE, related_name="%(class)ss")
+	account = models.ForeignKey(to="users.Account", on_delete=models.CASCADE, related_name="%(class)ss")
+	activity = models.ForeignKey(to="activities.Activity", on_delete=models.CASCADE, related_name="%(class)ss")
 
 
 class Comment(Interaction):
-    content = CKEditor5Field("Text", config_name="extends")
+	content = CKEditor5Field("Text", config_name="extends")
 
 
 class Like(Interaction):
-    class Meta:
-        unique_together = ("account", "activity")
+	class Meta:
+		unique_together = ("account", "activity")

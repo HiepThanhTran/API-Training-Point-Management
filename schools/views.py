@@ -5,7 +5,13 @@ from rest_framework.response import Response
 from core.base import paginators, perms
 from core.utils import dao, exporter, factory
 from schools import serializers as schools_serializers
-from schools.models import Class, Criterion, Semester
+from schools.models import Class, Criterion, Semester, Faculty
+
+
+class FacultyViewSet(viewsets.ViewSet, generics.ListAPIView):
+	queryset = Faculty.objects.filter(is_active=True)
+	serializer_class = schools_serializers.FacultySerializer
+	permission_classes = [perms.HasInAssistantGroup]
 
 
 class ClassViewSet(viewsets.ViewSet, generics.ListAPIView):
@@ -25,12 +31,12 @@ class ClassViewSet(viewsets.ViewSet, generics.ListAPIView):
 
 
 class CriterionViewSet(viewsets.ViewSet, generics.ListAPIView):
-	queryset = Criterion.objects.filter(is_active=True)
+	queryset = Criterion.objects.filter(is_active=True).order_by("name")
 	serializer_class = schools_serializers.CriterionSerializer
 
 
 class SemesterViewSet(viewsets.ViewSet, generics.ListAPIView):
-	queryset = Semester.objects.filter(is_active=True)
+	queryset = Semester.objects.filter(is_active=True).order_by("-start_date")
 	serializer_class = schools_serializers.SemesterSerializer
 	pagination_class = paginators.SemesterPagination
 

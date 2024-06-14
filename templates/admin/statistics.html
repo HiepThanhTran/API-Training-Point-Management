@@ -41,17 +41,6 @@
             </ul>
         </div>
         <div class="dropdown ms-5">
-            <label for="semester-select">Học kỳ: </label>
-            <select id="semester-select">
-                {% for semester in semesters %}
-                    <option value="{{ semester.code }}" {% if forloop.first %}selected{% endif %}>
-                        {{ semester.original_name }} - {{ semester.academic_year.start_date.year }}-
-                        {{ semester.academic_year.end_date.year }}
-                    </option>
-                {% endfor %}
-            </select>
-        </div>
-        <div class="dropdown ms-5">
             <div>
                 <label for="class-select">Lớp: </label>
                 <select id="class-select">
@@ -68,15 +57,34 @@
                 <li class="list-group-item average-points-class">Điểm trung bình toàn lớp: <p>{{ statistics_class.average_points }}</p></li>
             </ul>
         </div>
+        <div class="dropdown ms-5 d-flex flex-column justify-content-between">
+            <div>
+                <label for="semester-select">Học kỳ: </label>
+                <select id="semester-select">
+                    {% for semester in semesters %}
+                        <option value="{{ semester.code }}" {% if forloop.first %}selected{% endif %}>
+                            {{ semester.original_name }} - {{ semester.academic_year.start_date.year }}-
+                            {{ semester.academic_year.end_date.year }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div style="display: flex; justify-content: space-evenly;">
+                <button type="button" id="faculty-export-pdf" class="btn btn-primary">Xuất PDF thống kê khoa</button>
+                <button type="button" id="faculty-export-csv" class="btn btn-success ms-3">Xuất CSV thống kê khoa</button>
+            </div>
+            <div style="display: flex; justify-content: space-evenly;">
+                <button type="button" id="class-export-pdf" class="btn btn-primary">Xuất PDF thống kê lớp</button>
+                <button type="button" id="class-export-csv" class="btn btn-success ms-3">Xuất CSV thống kê lớp</button>
+            </div>
+        </div>
     </div>
     <div id="chartContainer" class="container-fluid">
         <div class="row">
             <div class="col left">
-                <canvas id="chartFaculty"></canvas>
+                <canvas id="chartStatistics"></canvas>
             </div>
-            <div class="col right">
-                <canvas id="chartClass"></canvas>
-            </div>
+            <div class="col right"></div>
         </div>
     </div>
     {% include 'layout/preloading.html' %}
@@ -89,31 +97,31 @@
     <script src="{% static 'js/utils.js' %}"></script>
     <script src="{% static 'js/admin/statistics.js' %}"></script>
     <script>
-        let labelsLeft = []
-        let dataLeft = []
-        let bgColorsLeft = []
-        let borderColorsLeft = []
-        let chartLeftColors
+        let labelsOfFaculty = []
+        let dataOfFaculty = []
+        let bgColorsOfFaculty = []
+        let borderColorsOfFaculty = []
+        let chartFacultyColors
         {% for key, value in statistics_faculty.achievements.items %}
-            labelsLeft.push("{{ key }}")
-            dataLeft.push({{ value }})
-            chartLeftColors = generateRandomColor();
-            bgColorsLeft.push(chartLeftColors.color);
-            borderColorsLeft.push(chartLeftColors.borderColor);
+            labelsOfFaculty.push("{{ key }}")
+            dataOfFaculty.push({{ value }})
+            chartFacultyColors = generateRandomColor();
+            bgColorsOfFaculty.push(chartFacultyColors.color);
+            borderColorsOfFaculty.push(chartFacultyColors.borderColor);
         {% endfor %}
 
 
-        let labelsRight = []
-        let dataRight = []
-        let bgColorsRight = []
-        let borderColorsRight = []
-        let chartRightColors
+        let labelsOfClass = []
+        let dataOfClass = []
+        let bgColorsOfClass = []
+        let borderColorsOfClass = []
+        let chartClassColors
         {% for key, value in statistics_class.achievements.items %}
-            labelsRight.push("{{ key }}")
-            dataRight.push({{ value }})
-            chartRightColors = generateRandomColor();
-            bgColorsRight.push(chartRightColors.color);
-            borderColorsRight.push(chartRightColors.borderColor);
+            labelsOfClass.push("{{ key }}")
+            dataOfClass.push({{ value }})
+            chartClassColors = generateRandomColor();
+            bgColorsOfClass.push(chartClassColors.color);
+            borderColorsOfClass.push(chartClassColors.borderColor);
         {% endfor %}
     </script>
 {% endblock %}

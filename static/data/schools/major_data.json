@@ -1,74 +1,74 @@
 [
-	{
-		"name": "Công nghệ thông tin",
-		"faculty_id": 1
-	},
-	{
-		"name": "Khoa học máy tính",
-		"faculty_id": 1
-	},
-	{
-		"name": "Hệ thống thông tin quản lý",
-		"faculty_id": 1
-	},
-	{
-		"name": "Trí tuệ nhân tạo",
-		"faculty_id": 1
-	},
-	{
-		"name": "Du lịch",
-		"faculty_id": 2
-	},
-	{
-		"name": "Marketing",
-		"faculty_id": 2
-	},
-	{
-		"name": "Quản trị nhân lực",
-		"faculty_id": 2
-	},
-	{
-		"name": "Kinh doanh quốc tế",
-		"faculty_id": 2
-	},
-	{
-		"name": "Quản trị kinh doanh",
-		"faculty_id": 2
-	},
-	{
-		"name": "Logistics & Quản lý chuỗi cung ứng",
-		"faculty_id": 2
-	},
-	{
-		"name": "Công nghệ sinh học",
-		"faculty_id": 3
-	},
-	{
-		"name": "Công nghệ thực phẩm",
-		"faculty_id": 3
-	},
-	{
-		"name": "Tâm lý học",
-		"faculty_id": 4
-	},
-	{
-		"name": "Xã hội học",
-		"faculty_id": 4
-	},
-	{
-		"name": "Đông Nam Á học",
-		"faculty_id": 4
-	},
-	{
-		"name": "Công tác xã hội",
-		"faculty_id": 4
-	},
-	{
-		"name": "Công nghệ kỹ thuật Công trình xây dựng",
-		"faculty_id": 5
-	},
-	{
-		"name": "Quản lý xây dựng",
-		"faculty_id": 5
-	}
+  {
+    "name": "Công nghệ thông tin",
+    "faculty_id": 1
+  },
+  {
+    "name": "Khoa học máy tính",
+    "faculty_id": 1
+  },
+  {
+    "name": "Hệ thống thông tin quản lý",
+    "faculty_id": 1
+  },
+  {
+    "name": "Trí tuệ nhân tạo",
+    "faculty_id": 1
+  },
+  {
+    "name": "Du lịch",
+    "faculty_id": 2
+  },
+  {
+    "name": "Marketing",
+    "faculty_id": 2
+  },
+  {
+    "name": "Quản trị nhân lực",
+    "faculty_id": 2
+  },
+  {
+    "name": "Kinh doanh quốc tế",
+    "faculty_id": 2
+  },
+  {
+    "name": "Quản trị kinh doanh",
+    "faculty_id": 2
+  },
+  {
+    "name": "Logistics & Quản lý chuỗi cung ứng",
+    "faculty_id": 2
+  },
+  {
+    "name": "Công nghệ sinh học",
+    "faculty_id": 3
+  },
+  {
+    "name": "Công nghệ thực phẩm",
+    "faculty_id": 3
+  },
+  {
+    "name": "Tâm lý học",
+    "faculty_id": 4
+  },
+  {
+    "name": "Xã hội học",
+    "faculty_id": 4
+  },
+  {
+    "name": "Đông Nam Á học",
+    "faculty_id": 4
+  },
+  {
+    "name": "Công tác xã hội",
+    "faculty_id": 4
+  },
+  {
+    "name": "Công nghệ kỹ thuật Công trình xây dựng",
+    "faculty_id": 5
+  },
+  {
+    "name": "Quản lý xây dựng",
+    "faculty_id": 5
+  }
 ]

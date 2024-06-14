@@ -4,7 +4,7 @@ from rest_framework import serializers
 class BaseSerializer(serializers.ModelSerializer):
     def __init__(self, *args, **kwargs):
         fields = kwargs.pop("fields", None)
-        exclude = kwargs.pop("exclude", None)
+        excludes = kwargs.pop("excludes", None)
 
         super().__init__(*args, **kwargs)
 
@@ -14,6 +14,6 @@ class BaseSerializer(serializers.ModelSerializer):
             for field_name in existing - allowed:
                 self.fields.pop(field_name)
 
-        if exclude:
-            for field_name in exclude:
+        if excludes:
+            for field_name in excludes:
                 self.fields.pop(field_name)

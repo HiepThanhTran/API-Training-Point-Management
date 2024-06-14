@@ -9,39 +9,60 @@ const hidePreLoading = () => {
 };
 
 const generateRandomColor = () => {
-    let r = Math.random() * 255;
-    let g = Math.random() * 255;
-    let b = Math.random() * 255;
+    const [r, g, b] = [Math.random() * 255, Math.random() * 255, Math.random() * 255];
     return {
-        color: `rgba(${r}, ${g}, ${b}, 0.2)`, borderColor: `rgba(${r}, ${g}, ${b}, 1)`,
+        color: `rgba(${r}, ${g}, ${b}, 0.2)`,
+        borderColor: `rgba(${r}, ${g}, ${b}, 1)`,
     };
 };
 
-const generateChart = (ctx, type, label, labels, data, bgColors, borderColors) => {
+const generateChart = (
+    ctx, type, labels,
+    labelOfFaculty, datadataOfFaculty, bgColorsOfFaculty, borderColorsOfFaculty,
+    labelOfClass, dataOfClass, bgColorsOfClass, borderColorsOfClass
+) => {
     return new Chart(ctx, {
-        type: type,
-        data: {
-            labels: labels,
-            datasets: [{
-                label: label,
-                data: data,
-                backgroundColor: bgColors,
-                borderColor: borderColors,
-                borderWidth: 1,
-            }, {
-                type: 'line',
-                label: 'Line Dataset',
-                data: data,
-                fill: false,
-                borderColor: 'rgb(54, 162, 235)'
-            }],
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true,
+            type: type,
+            data: {
+                labels: labels,
+                datasets: [
+                    {
+                        label: labelOfFaculty,
+                        data: datadataOfFaculty,
+                        borderWidth: 1,
+                        borderColor: borderColorsOfFaculty,
+                        backgroundColor: bgColorsOfFaculty,
+                    },
+                    {
+                        label: labelOfClass,
+                        data: dataOfClass,
+                        borderWidth: 1,
+                        borderColor: borderColorsOfClass,
+                        backgroundColor: bgColorsOfClass,
+                    }
+                ],
+            },
+            options: {
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Thống kê điểm rèn luyện',
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: (context) => ` ${context.dataset.label}: ${context.parsed.y} điểm` || '',
+                        },
+                    },
                 },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: (value, index, ticks) => value + " điểm"
+                        },
+                    },
+                }
             },
         },
-    });
+    );
 };

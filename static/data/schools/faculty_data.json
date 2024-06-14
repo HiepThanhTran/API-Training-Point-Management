@@ -1,22 +1,22 @@
 [
-	{
-		"name": "Công nghệ thông tin",
-		"educational_system_id": 1
-	},
-	{
-		"name": "Quản trị kinh doanh",
-		"educational_system_id": 1
-	},
-	{
-		"name": "Công nghệ sinh học",
-		"educational_system_id": 1
-	},
-	{
-		"name": "Xã Hội Học - Công Tác Xã Hội - Đông Nam Á",
-		"educational_system_id": 1
-	},
-	{
-		"name": "Xây Dựng",
-		"educational_system_id": 1
-	}
+  {
+    "name": "Công nghệ thông tin",
+    "educational_system_id": 1
+  },
+  {
+    "name": "Quản trị kinh doanh",
+    "educational_system_id": 1
+  },
+  {
+    "name": "Công nghệ sinh học",
+    "educational_system_id": 1
+  },
+  {
+    "name": "Xã Hội Học - Công Tác Xã Hội - Đông Nam Á",
+    "educational_system_id": 1
+  },
+  {
+    "name": "Xây Dựng",
+    "educational_system_id": 1
+  }
 ]

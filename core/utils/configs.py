@@ -13,7 +13,6 @@ MODEL_DATA_PATH = {
 	'Semester': os.path.join(settings.BASE_DIR, 'static/data/schools/semester_data.json'),
 	'Criterion': os.path.join(settings.BASE_DIR, 'static/data/schools/criterion_data.json'),
 
-	'Student': os.path.join(settings.BASE_DIR, 'static/data/users/student_data.json'),
 	'Assistant': os.path.join(settings.BASE_DIR, 'static/data/users/assistant_data.json'),
 	'Specialist': os.path.join(settings.BASE_DIR, 'static/data/users/specialist_data.json'),
 
@@ -67,3 +66,12 @@ CONTENT_TYPE_BY_FILE_FORMAT = {
 }
 
 ACHIEVEMENTS = ["Xuất sắc", "Giỏi", "Khá", "Trung bình", "Yếu", "Kém"]
+
+ACHIEVEMENTS_ORDER = {
+	"Xuất sắc": 6,
+	"Giỏi": 5,
+	"Khá": 4,
+	"Trung bình": 3,
+	"Yếu": 2,
+	"Kém": 1
+}

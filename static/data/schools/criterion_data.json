@@ -1,32 +1,32 @@
 [
-	{
-		"name": "Điều 1",
-		"max_point": 20,
-		"description": "Đánh giá về ý thức học tập"
-	},
-	{
-		"name": "Điều 2",
-		"max_point": 25,
-		"description": "Đánh giá về ý thức, kết quả chấp hành nội quy, quy định của nhà trường"
-	},
-	{
-		"name": "Điều 3",
-		"max_point": 20,
-		"description": "Đánh giá về ý thức và kết quả tham gia các hoạt động chính trị - xã hội, văn hóa, văn nghệ, thể thao, phòng chống các tệ nạn xã hội."
-	},
-	{
-		"name": "Điều 4",
-		"max_point": 25,
-		"description": "Đánh giá về phẩm chất công dân và quan hệ với cộng đồng"
-	},
-	{
-		"name": "Điều 5",
-		"max_point": 10,
-		"description": "Đánh giá về ý thức và kết quả tham gia phụ trách lớp học, các đoàn thể, tổ chức khác trong nhà trường"
-	},
-	{
-		"name": "Điều 6",
-		"max_point": 10,
-		"description": "Các trường hợp đặc biệt"
-	}
+  {
+    "name": "Điều 1",
+    "max_point": 20,
+    "description": "Đánh giá về ý thức học tập"
+  },
+  {
+    "name": "Điều 2",
+    "max_point": 25,
+    "description": "Đánh giá về ý thức, kết quả chấp hành nội quy, quy định của nhà trường"
+  },
+  {
+    "name": "Điều 3",
+    "max_point": 20,
+    "description": "Đánh giá về ý thức và kết quả tham gia các hoạt động chính trị - xã hội, văn hóa, văn nghệ, thể thao, phòng chống các tệ nạn xã hội."
+  },
+  {
+    "name": "Điều 4",
+    "max_point": 25,
+    "description": "Đánh giá về phẩm chất công dân và quan hệ với cộng đồng"
+  },
+  {
+    "name": "Điều 5",
+    "max_point": 10,
+    "description": "Đánh giá về ý thức và kết quả tham gia phụ trách lớp học, các đoàn thể, tổ chức khác trong nhà trường"
+  },
+  {
+    "name": "Điều 6",
+    "max_point": 10,
+    "description": "Các trường hợp đặc biệt"
+  }
 ]
