@@ -3,8 +3,13 @@ from django.contrib.contenttypes.models import ContentType
 from django.utils.safestring import mark_safe
 
 from activities.forms import ActivityAdminForm
-from activities.models import Activity, ActivityRegistration, MissingActivityReport, Bulletin
-from core.base.admin import my_admin_site, BaseAdmin
+from activities.models import (
+    Activity,
+    ActivityRegistration,
+    Bulletin,
+    MissingActivityReport,
+)
+from core.base.admin import BaseAdmin, my_admin_site
 
 
 class BulletinAdmin(BaseAdmin):
@@ -23,7 +28,7 @@ class ActivityAdmin(BaseAdmin):
 
 	list_display = ["name", "criterion", "point", "faculty", "semester", "created_date", "updated_date"]
 	list_filter = ["created_date", "updated_date"]
-	search_fields = ("name", "criterion", "bulletin", "faculty", "semester", "description", "location")
+	search_fields = ("name", "criterion__name", "bulletin__name", "faculty__name", "description", "location")
 	readonly_fields = ["activity_image"]
 
 	def formfield_for_foreignkey(self, db_field, request, **kwargs):

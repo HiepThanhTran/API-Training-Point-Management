@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from core.base.admin import my_admin_site, BaseAdmin
+from core.base.admin import BaseAdmin, my_admin_site
 from interacts.models import Comment, Like
 
 

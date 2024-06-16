@@ -1,7 +1,17 @@
 from django.contrib import admin
 
-from core.base.admin import my_admin_site, BaseAdmin
-from schools.models import EducationalSystem, Faculty, Major, AcademicYear, Class, Semester, Criterion, TrainingPoint, SemesterOfStudent
+from core.base.admin import BaseAdmin, my_admin_site
+from schools.models import (
+    AcademicYear,
+    Class,
+    Criterion,
+    EducationalSystem,
+    Faculty,
+    Major,
+    Semester,
+    SemesterOfStudent,
+    TrainingPoint,
+)
 
 
 class EducationalSystemAdmin(BaseAdmin):

@@ -1,8 +1,8 @@
 from django.contrib import admin
 from django.utils.safestring import mark_safe
 
-from core.base.admin import my_admin_site, BaseAdmin
-from users.models import Account, Student, Administrator, Specialist, Assistant
+from core.base.admin import BaseAdmin, my_admin_site
+from users.models import Account, Administrator, Assistant, Specialist, Student
 
 
 class AccountAdmin(BaseAdmin):

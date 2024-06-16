@@ -4,6 +4,7 @@ from rest_framework import routers
 from schools import views
 
 router = routers.DefaultRouter()
+router.register(prefix="faculty", viewset=views.FacultyViewSet, basename="faculties")
 router.register(prefix="classes", viewset=views.ClassViewSet, basename="classes")
 router.register(prefix="semesters", viewset=views.SemesterViewSet, basename="semesters")
 router.register(prefix="criterions", viewset=views.CriterionViewSet, basename="criterions")

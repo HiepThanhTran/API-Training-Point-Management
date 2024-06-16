@@ -15,6 +15,10 @@ class ActivityPagination(pagination.PageNumberPagination):
 
 class MissingActivityReportPagination(pagination.PageNumberPagination):
     page_size = 4
+
+
+class FacultyPagination(pagination.PageNumberPagination):
+    page_size = 5
     
 
 class SemesterPagination(pagination.PageNumberPagination):

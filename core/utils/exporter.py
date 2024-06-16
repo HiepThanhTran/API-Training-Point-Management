@@ -21,7 +21,7 @@ pdfmetrics.registerFont(TTFont(name="DejaVuSans", filename=font_path))
 
 def export_statistics(semester=None, faculty=None, sclass=None, file_format="csv"):
 	students_summary_list = dao.get_statistics(semester=semester, faculty=faculty, sclass=sclass)[1]
-	if faculty:
+	if faculty and not sclass:
 		title_text = f"Thống kê điểm rèn luyện<br/>Khoa {faculty.name} học kỳ {semester.short_name} năm học {semester.academic_year}"
 		faculty_name = unidecode.unidecode(faculty.name).lower().replace(" ", "")
 		filename = f"khoa_{faculty_name}_{semester.code}_statistics.{file_format}"

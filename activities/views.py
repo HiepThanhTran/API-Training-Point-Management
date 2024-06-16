@@ -78,6 +78,7 @@ class ActivityViewSet(viewsets.ViewSet, generics.ListCreateAPIView, generics.Ret
 	queryset = Activity.objects.select_related("bulletin", "faculty", "semester", "criterion").filter(is_active=True).order_by("-created_date")
 	serializer_class = activities_serializers.ActivitySerializer
 	pagination_class = paginators.ActivityPagination
+	parser_classes = [parsers.MultiPartParser, ]
 
 	filter_params = ["bulletin_id", "faculty_id", "semester_id", "criterion_id", "organizer_id"]
 
@@ -193,7 +194,7 @@ class ActivityViewSet(viewsets.ViewSet, generics.ListCreateAPIView, generics.Ret
 		return Response(data=serializer.data, status=status.HTTP_201_CREATED)
 
 	def partial_update(self, request, pk=None):
-		serializer = self.get_serializer_class()(self.get_object(), data=request.data, partial=True)
+		serializer = self.get_serializer_class()(self.get_object(), data=request.data, context={"request": request}, partial=True)
 		serializer.is_valid(raise_exception=True)
 		serializer.save()
 

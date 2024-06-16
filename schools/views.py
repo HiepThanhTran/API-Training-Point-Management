@@ -11,7 +11,7 @@ from schools.models import Class, Criterion, Semester, Faculty
 class FacultyViewSet(viewsets.ViewSet, generics.ListAPIView):
 	queryset = Faculty.objects.filter(is_active=True)
 	serializer_class = schools_serializers.FacultySerializer
-	permission_classes = [perms.HasInAssistantGroup]
+	pagination_class = paginators.FacultyPagination
 
 
 class ClassViewSet(viewsets.ViewSet, generics.ListAPIView):
@@ -24,8 +24,7 @@ class ClassViewSet(viewsets.ViewSet, generics.ListAPIView):
 
 		if self.action.__eq__("list"):
 			faculty_id = self.request.query_params.get("faculty_id")
-			if faculty_id:
-				queryset = queryset.filter(major__faculty_id=faculty_id)
+			queryset = queryset.filter(major__faculty_id=faculty_id) if faculty_id else queryset
 
 		return queryset
 

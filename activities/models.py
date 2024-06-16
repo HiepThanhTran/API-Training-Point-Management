@@ -60,8 +60,8 @@ class Activity(BaseModel):
 
 	faculty = models.ForeignKey(to="schools.Faculty", on_delete=models.CASCADE, related_name="activities")
 	semester = models.ForeignKey(to="schools.Semester", on_delete=models.CASCADE, related_name="activities")
-	bulletin = models.ForeignKey(to=Bulletin, blank=True, null=True, on_delete=models.SET_NULL, related_name="activities", )
-	criterion = models.ForeignKey(to="schools.Criterion", blank=True, null=True, on_delete=models.SET_NULL, related_name="activities", )
+	bulletin = models.ForeignKey(to=Bulletin, blank=True, null=True, on_delete=models.SET_NULL, related_name="activities")
+	criterion = models.ForeignKey(to="schools.Criterion", blank=True, null=True, on_delete=models.SET_NULL, related_name="activities")
 	participants = models.ManyToManyField("users.Student", related_name="activities", through="ActivityRegistration")
 
 	def __str__(self):

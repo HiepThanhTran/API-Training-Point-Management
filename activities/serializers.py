@@ -1,9 +1,15 @@
 from rest_framework import serializers
 
-from activities.models import Activity, ActivityRegistration, Bulletin, MissingActivityReport
+from activities.models import (
+    Activity,
+    ActivityRegistration,
+    Bulletin,
+    MissingActivityReport,
+)
 from core.base.serializers import BaseSerializer
 from core.utils import factory, validations
 from interacts.models import Like
+from schools import serializers as schools_serializer
 
 
 class BulletinSerializer(BaseSerializer):
@@ -24,12 +30,12 @@ class BulletinSerializer(BaseSerializer):
 
 	def create(self, validated_data):
 		request = self.context.get("request")
+		image = validated_data.pop("image", None)
 
 		instance_name = validations.check_account_role(request.user)[1]
 		validated_data["poster"] = getattr(request.user, instance_name, None)
 		bulletin = Bulletin.objects.create(**validated_data)
 
-		image = validated_data.pop("image", None)
 		bulletin.image = factory.get_or_upload_image(file=image, public_id=f"bulletin-{bulletin.id}" if image else None, ftype="bulletin")
 		bulletin.save()
 
@@ -51,13 +57,18 @@ class BulletinSerializer(BaseSerializer):
 		serializer = serializer_class(bulletin.poster, excludes=["code"])
 
 		data = serializer.data
-		data['role'] = role
-		data['avatar'] = bulletin.poster.account.avatar.url if bulletin.poster.account else None
+		data["role"] = role
+		data["avatar"] = bulletin.poster.account.avatar.url if bulletin.poster.account else None
 
 		return data
 
 
 class ActivitySerializer(BaseSerializer):
+	bulletin = BulletinSerializer(fields=["id", "name"])
+	faculty = schools_serializer.FacultySerializer(fields=['id', 'name'])
+	criterion = schools_serializer.CriterionSerializer(fields=["id", "name"])
+	semester = schools_serializer.SemesterSerializer(fields=["id", "original_name", "academic_year"])
+
 	total_likes = serializers.SerializerMethodField()
 	created_by = serializers.SerializerMethodField()
 
@@ -76,26 +87,20 @@ class ActivitySerializer(BaseSerializer):
 
 		if "image" in self.fields and image:
 			data["image"] = activity.image.url
-		if "bulletin" in self.fields and activity.bulletin:
-			data["bulletin"] = f"{activity.bulletin}"
-		if "faculty" in self.fields and activity.faculty:
-			data["faculty"] = f"{activity.faculty}"
 		if "semester" in self.fields and activity.semester:
-			data["semester"] = f"{activity.semester}"
-		if "criterion" in self.fields and activity.criterion:
-			data["criterion"] = f"{activity.criterion}"
+			data["semester"] = {"id": activity.semester.id, "name": f"{activity.semester.original_name} - {activity.semester.academic_year}"}
 
 		return data
 
 	def create(self, validated_data):
 		request = self.context.get("request")
+		image = validated_data.pop("image", None)
 
 		instance_name = validations.check_account_role(request.user)[1]
 		validated_data["organizer"] = getattr(request.user, instance_name, None)
 		activity = Activity.objects.create(**validated_data)
 
-		image = validated_data.get("image", None)
-		activity.image = factory.get_or_upload_image(file=image, public_id=f"activity-{activity.id}" if image else None, ftype="activity")
+		activity.image = factory.get_or_upload_image(file=image, public_id=f"activity-{activity.id}" if image else image, ftype="activity")
 		activity.save()
 
 		return activity
@@ -116,8 +121,8 @@ class ActivitySerializer(BaseSerializer):
 		serializer = serializer_class(activity.organizer, excludes=["code"])
 
 		data = serializer.data
-		data['role'] = role
-		data['avatar'] = activity.organizer.account.avatar.url if activity.organizer.account else None
+		data["role"] = role
+		data["avatar"] = activity.organizer.account.avatar.url if activity.organizer.account else None
 
 		return data
 

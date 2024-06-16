@@ -1,18 +1,17 @@
 from django.db.models import Case, Count, F, IntegerField, Sum, When
 
-from core.utils.configs import ACHIEVEMENTS
+from core.utils.configs import ACHIEVEMENTS, ACHIEVEMENTS_ORDER
 from schools.models import TrainingPoint
 
 
 def get_statistics(semester=None, faculty=None, sclass=None):
-	if faculty:
+	if faculty and not sclass:
 		return statistics_by_entity(semester=semester, entity=faculty, entity_type="faculty")
 
 	return statistics_by_entity(semester=semester, entity=sclass, entity_type="class")
 
 
 def statistics_by_entity(semester=None, entity=None, entity_type="class"):
-	achievement_order = {achievement: index for index, achievement in enumerate(ACHIEVEMENTS[::-1], start=1)}
 	achievements = {achievement: 0 for achievement in ACHIEVEMENTS}
 	total_students, total_points = 0, 0
 	students_summary_list = []
@@ -27,7 +26,7 @@ def statistics_by_entity(semester=None, entity=None, entity_type="class"):
 	average_points = round(total_points / total_students if total_students > 0 else 0, 2)
 
 	students_summary_list.sort(
-		key=lambda x: achievement_order[x["achievement"]],
+		key=lambda x: ACHIEVEMENTS_ORDER[x["achievement"]],
 		reverse=True
 	)
 
