@@ -255,7 +255,7 @@ class MissingActivityReportViewSet(viewsets.ViewSet, generics.ListAPIView, gener
 		if missing_report.is_resolved:
 			return Response(data={"detail": "Báo thiếu đã được giải quyết"}, status=status.HTTP_400_BAD_REQUEST)
 
-		registration = ActivityRegistration.objects.get(student=missing_report.student, activity=missing_report.activity)
+		registration, _ = ActivityRegistration.objects.get_or_create(student=missing_report.student, activity=missing_report.activity)
 		dao.update_point_for_student(registration)
 
 		missing_report.is_resolved = True
