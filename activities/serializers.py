@@ -133,11 +133,10 @@ class ActivitySerializer(BaseSerializer):
 
 class AuthenticatedActivitySerializer(ActivitySerializer):
 	liked = serializers.SerializerMethodField()
-	registered = serializers.SerializerMethodField()
 
 	class Meta:
 		model = ActivitySerializer.Meta.model
-		fields = ActivitySerializer.Meta.fields + ["liked", "registered"]
+		fields = ActivitySerializer.Meta.fields + ["liked"]
 
 	def get_liked(self, activity):
 		request = self.context.get("request")
@@ -149,6 +148,15 @@ class AuthenticatedActivitySerializer(ActivitySerializer):
 
 		return like.is_active
 
+
+class StudentAuthenticatedActivitySerializer(AuthenticatedActivitySerializer):
+	registered = serializers.SerializerMethodField()
+	reported = serializers.SerializerMethodField()
+
+	class Meta:
+		model = AuthenticatedActivitySerializer.Meta.model
+		fields = AuthenticatedActivitySerializer.Meta.fields + ["registered", "reported"]
+
 	def get_registered(self, activity):
 		request = self.context.get("request")
 
@@ -156,6 +164,16 @@ class AuthenticatedActivitySerializer(ActivitySerializer):
 		user = getattr(request.user, instance_name, None)
 
 		return activity.participants.filter(pk=user.id).exists()
+	
+	def get_reported(self, activity):
+		request = self.context.get("request")
+
+		try:
+			report = MissingActivityReport.objects.get(student=request.user.student, activity=activity)
+		except MissingActivityReport.DoesNotExist:
+			return {"reported": False, "is_resolved": None}
+		
+		return {"reported": True, "is_resolved": report.is_resolved}
 
 
 class ActivityRegistrationSerializer(BaseSerializer):

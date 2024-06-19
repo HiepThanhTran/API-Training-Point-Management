@@ -16,7 +16,7 @@ from activities.models import (
 from core.base import paginators, perms
 from core.utils import dao, factory, validations
 from interacts import serializers as interacts_serializers
-from users.models import Student
+from users.models import Account, Student
 
 
 class BulletinViewSet(viewsets.ViewSet, generics.ListCreateAPIView, generics.RetrieveDestroyAPIView):
@@ -109,6 +109,9 @@ class ActivityViewSet(viewsets.ViewSet, generics.ListCreateAPIView, generics.Ret
 
 	def get_serializer_class(self):
 		if self.request.user.is_authenticated:
+			if self.request.user.role == Account.Role.STUDENT:
+				return activities_serializers.StudentAuthenticatedActivitySerializer
+			
 			return activities_serializers.AuthenticatedActivitySerializer
 
 		return self.serializer_class
