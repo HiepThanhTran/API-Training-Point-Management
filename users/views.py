@@ -151,14 +151,21 @@ class StudentViewSet(viewsets.ViewSet, generics.ListAPIView, generics.RetrieveAP
 
 	@action(methods=["get"], detail=True, url_path="activities")
 	def get_activities(self, request, pk=None):
-		partd = request.query_params.get("partd")
-
 		registrations = self.get_object().registrations.select_related("activity").filter(is_active=True)
 
+		partd = request.query_params.get("partd")
 		if partd and partd.capitalize() in ["True", "False"]:
 			registrations = registrations.filter(is_attendance=partd.capitalize())
 
-		activities = [registration.activity for registration in registrations]
+		name = request.query_params.get("name")
+		if name:
+			activities = [
+				registration.activity
+				for registration in registrations
+				if name.lower() in registration.activity.name.lower()
+			]
+		else:
+			activities = [registration.activity for registration in registrations]
 
 		paginator = paginators.ActivityPagination()
 		page = paginator.paginate_queryset(queryset=activities, request=request)
