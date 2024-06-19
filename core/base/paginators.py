@@ -1,6 +1,14 @@
 from rest_framework import pagination
 
 
+class UserPagination(pagination.PageNumberPagination):
+    page_size = 10
+
+
+class AssistantPagination(pagination.PageNumberPagination):
+    page_size = 5
+
+
 class StudentPagination(pagination.PageNumberPagination):
     page_size = 5
 

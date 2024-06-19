@@ -64,11 +64,6 @@ class BulletinSerializer(BaseSerializer):
 
 
 class ActivitySerializer(BaseSerializer):
-	bulletin = BulletinSerializer(fields=["id", "name"])
-	faculty = schools_serializer.FacultySerializer(fields=['id', 'name'])
-	criterion = schools_serializer.CriterionSerializer(fields=["id", "name"])
-	semester = schools_serializer.SemesterSerializer(fields=["id", "original_name", "academic_year"])
-
 	total_likes = serializers.SerializerMethodField()
 	created_by = serializers.SerializerMethodField()
 
@@ -87,6 +82,12 @@ class ActivitySerializer(BaseSerializer):
 
 		if "image" in self.fields and image:
 			data["image"] = activity.image.url
+		if "bulletin" in self.fields and activity.bulletin:
+			data["bulletin"] = {"id": activity.bulletin.id, "name": f"{activity.bulletin.name}"}
+		if "faculty" in self.fields and activity.faculty:
+			data["faculty"] = {"id": activity.faculty.id, "name": f"{activity.faculty.name}"}
+		if "criterion" in self.fields and activity.criterion:
+			data["criterion"] = {"id": activity.criterion.id, "name": f"{activity.criterion.name}"}
 		if "semester" in self.fields and activity.semester:
 			data["semester"] = {"id": activity.semester.id, "name": f"{activity.semester.original_name} - {activity.semester.academic_year}"}
 

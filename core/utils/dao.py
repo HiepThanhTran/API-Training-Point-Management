@@ -104,3 +104,18 @@ def update_point_for_student(registration):
 	registration.save()
 
 	return training_point
+
+def filter_by_full_name(queryset, search):
+	filtered_queryset = []
+	for query in queryset:
+			if hasattr(query, 'specialist'):
+				full_name = f"{query.specialist.last_name} {query.specialist.middle_name} {query.specialist.first_name}".strip().lower()
+			elif hasattr(query, 'assistant'):
+				full_name = f"{query.assistant.last_name} {query.assistant.middle_name} {query.assistant.first_name}".strip().lower()
+			else:
+				full_name = f"{query.last_name} {query.middle_name} {query.first_name}".strip().lower()
+
+			if search in full_name:
+				filtered_queryset.append(query)
+
+	return filtered_queryset

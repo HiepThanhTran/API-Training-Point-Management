@@ -1,6 +1,6 @@
 import csv
 
-from django.db.models import Func, Q
+from django.db.models import Q
 from rest_framework import generics, parsers, permissions, status, viewsets
 from rest_framework.decorators import action
 from rest_framework.generics import get_object_or_404
@@ -14,14 +14,9 @@ from activities.models import (
     MissingActivityReport,
 )
 from core.base import paginators, perms
-from core.utils import dao, validations
+from core.utils import dao, factory, validations
 from interacts import serializers as interacts_serializers
 from users.models import Student
-
-
-class Unaccent(Func):
-	function = 'unaccent'
-	template = '%(function)s(%(expressions)s)'
 
 
 class BulletinViewSet(viewsets.ViewSet, generics.ListCreateAPIView, generics.RetrieveDestroyAPIView):
@@ -34,7 +29,7 @@ class BulletinViewSet(viewsets.ViewSet, generics.ListCreateAPIView, generics.Ret
 
 		if self.action.__eq__("list"):
 			name = self.request.query_params.get("name")
-			queryset = queryset.annotate(unaccented_name=Unaccent('name')).filter(
+			queryset = queryset.annotate(unaccented_name=factory.Unaccent('name')).filter(
 				Q(unaccented_name__icontains=name) | Q(name__icontains=name)) if name else queryset
 
 		return queryset
@@ -91,7 +86,7 @@ class ActivityViewSet(viewsets.ViewSet, generics.ListCreateAPIView, generics.Ret
 				queryset = queryset.filter(**{param: value}) if value else queryset
 
 			name = self.request.query_params.get("name")
-			queryset = queryset.annotate(unaccented_name=Unaccent("name")).filter(
+			queryset = queryset.annotate(unaccented_name=factory.Unaccent("name")).filter(
 				Q(unaccented_name__icontains=name) | Q(name__icontains=name)) if name else queryset
 
 			form = self.request.query_params.get("form")
@@ -173,12 +168,17 @@ class ActivityViewSet(viewsets.ViewSet, generics.ListCreateAPIView, generics.Ret
 		serializer = activities_serializers.ActivityRegistrationSerializer(registration)
 		return Response(data=serializer.data, status=status.HTTP_201_CREATED)
 
-	@action(methods=["post"], detail=True, url_path="report", parser_classes=[parsers.MultiPartParser, ])
+	@action(methods=["post"], detail=True, url_path="report")
 	def report_activity(self, request, pk=None):
 		activity = self.get_object()
-		registration = get_object_or_404(queryset=activity.registrations, student=request.user.student)
-		if registration.is_point_added:
-			return Response(data={"detail": "Không thể báo thiếu hoạt động đã được cộng điểm"}, status=status.HTTP_400_BAD_REQUEST)
+
+		try:
+			registration = activity.registrations.get(student=request.user.student)
+
+			if registration.is_point_added:
+				return Response(data={"detail": "Không thể báo thiếu hoạt động đã được cộng điểm"}, status=status.HTTP_400_BAD_REQUEST)
+		except ActivityRegistration.DoesNotExist:
+			pass
 
 		content = request.data.get("content", "")
 		evidence = request.data.get("evidence", None)

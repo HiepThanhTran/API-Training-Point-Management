@@ -1,6 +1,7 @@
 import cloudinary
 from cloudinary import CloudinaryResource, api, uploader
 from django.contrib.auth.models import Group
+from django.db.models import Func
 from rest_framework.exceptions import ValidationError
 from rest_framework.generics import get_object_or_404
 
@@ -107,3 +108,7 @@ def get_all_subclasses(cls):
 		all_subclasses.extend(get_all_subclasses(subclass))
 
 	return all_subclasses
+
+class Unaccent(Func):
+	function = 'unaccent'
+	template = '%(function)s(%(expressions)s)'

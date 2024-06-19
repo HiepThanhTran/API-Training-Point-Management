@@ -49,7 +49,8 @@ class AccountSerializer(BaseSerializer):
 
 
 class AccountUpdateSerializer(serializers.Serializer):
-	password = serializers.CharField(write_only=True, required=False)
+	old_password = serializers.CharField(write_only=True, required=False)
+	new_password = serializers.CharField(write_only=True, required=False)
 	avatar = serializers.ImageField(required=False)
 	first_name = serializers.CharField(required=False, max_length=50)
 	middle_name = serializers.CharField(required=False, max_length=50)
@@ -63,8 +64,8 @@ class AccountUpdateSerializer(serializers.Serializer):
 		instance_name = validations.check_account_role(account)[1]
 		user = getattr(account, instance_name, None)
 
-		if "password" in validated_data:
-			account.set_password(validated_data.pop("password"))
+		if "old_password" in validated_data and "new_password" in validated_data:
+			account.set_password(validated_data.pop("new_password"))
 		if "avatar" in validated_data:
 			account.avatar = factory.get_or_upload_image(file=validated_data.pop("avatar"), public_id=f"user-{user.code}")
 		account.save()
@@ -80,7 +81,10 @@ class AccountUpdateSerializer(serializers.Serializer):
 class UserSerializer(BaseSerializer):
 	class Meta:
 		model = User
-		fields = ["id", "code", "full_name", "first_name", "middle_name", "last_name", "gender", "date_of_birth", "address", "phone_number", "faculty"]
+		fields = [
+			"id", "code", "full_name", "first_name", "middle_name", "last_name",
+			"gender", "date_of_birth", "address", "phone_number", "faculty"
+		]
 
 	def to_representation(self, user):
 		data = super().to_representation(user)

@@ -1,3 +1,5 @@
+from django.contrib.auth.hashers import check_password
+from django.db.models import Q
 from rest_framework import generics, parsers, permissions, status, viewsets
 from rest_framework.decorators import action
 from rest_framework.generics import get_object_or_404
@@ -5,11 +7,11 @@ from rest_framework.response import Response
 
 from activities import serializers as activities_serializers
 from core.base import paginators, perms
-from core.utils import dao
+from core.utils import dao, factory
 from schools import serializers as schools_serializer
 from schools.models import Semester
 from users import serializers as users_serializers
-from users.models import Account, Assistant, Student
+from users.models import Account, Assistant, Officer, Specialist, Student
 
 
 class AccountViewSet(viewsets.ViewSet):
@@ -33,7 +35,19 @@ class AccountViewSet(viewsets.ViewSet):
 
 	@action(methods=["patch"], detail=False, url_path="me/update")
 	def partial_update_authenticated_account(self, request):
-		serializer = users_serializers.AccountUpdateSerializer(instance=request.user, data=request.data, partial=True)
+		old_password = request.data.get("old_password", None)
+		new_password = request.data.get("new_password", None)
+
+		if old_password and new_password:
+			if not check_password(old_password, request.user.password):
+				return Response(data={"detail": "Mật khẩu cũ không chính xác"}, status=status.HTTP_400_BAD_REQUEST)
+
+		serializer = users_serializers.AccountUpdateSerializer(
+			instance=request.user,
+			data=request.data,
+			context={"request": request},
+			partial=True,
+		)
 		serializer.is_valid(raise_exception=True)
 		serializer.save()
 
@@ -57,10 +71,44 @@ class AccountViewSet(viewsets.ViewSet):
 		return Response(data=serializer.data, status=status.HTTP_201_CREATED)
 
 
+class AllUsersViewSet(viewsets.ViewSet):
+	def list(self, request):
+		name = request.query_params.get('name', '').strip().lower()
+
+		specialist_accounts = Account.objects.filter(specialist__isnull=False).select_related('specialist')
+		assistant_accounts = Account.objects.filter(assistant__isnull=False).select_related('assistant')
+		combined_accounts = list(specialist_accounts) + list(assistant_accounts)
+
+		combined_accounts = dao.filter_by_full_name(queryset=combined_accounts, search=name) if name else combined_accounts
+		
+		paginator = paginators.UserPagination()
+		paginated_accounts = paginator.paginate_queryset(combined_accounts, request)
+		serializer = users_serializers.AccountSerializer(paginated_accounts, many=True)
+
+		return paginator.get_paginated_response(serializer.data)
+
+
 class AssistantViewSet(viewsets.ViewSet, generics.ListAPIView, generics.RetrieveAPIView):
 	queryset = Assistant.objects.select_related("faculty").filter(is_active=True)
 	serializer_class = users_serializers.AssistantSerializer
-	permission_classes = [perms.HasInSpeacialistGroup]
+	pagination_class = paginators.AssistantPagination
+
+	def get_queryset(self):
+		queryset = self.queryset
+
+		if self.action.__eq__("list"):
+			hasAccount = self.request.query_params.get("has_account")
+			if hasAccount and hasAccount.capitalize() in ["True", "False"]:
+				queryset = queryset.filter(account__isnull=not (hasAccount.capitalize() == 'True'))
+
+			code = self.request.query_params.get("code")
+			queryset = queryset.filter(code__icontains=code) if code else queryset
+
+		return queryset
+
+class SpecialistViewSet(viewsets.ViewSet, generics.ListAPIView, generics.RetrieveAPIView):
+	queryset = Specialist.objects.select_related("faculty").filter(is_active=True)
+	serializer_class = users_serializers.SpecialistSerializer
 
 
 class StudentViewSet(viewsets.ViewSet, generics.ListAPIView, generics.RetrieveAPIView):
