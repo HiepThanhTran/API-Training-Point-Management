@@ -1,6 +1,6 @@
 # Training Point Management
 
-Welcome to the Training Point Management Web API repository!
+Welcome to the Training Point Management Web API repository! This project is designed to provide a comprehensive backend solution for managing and tracking training points for students. Developed using Django, this Web API offers a robust framework for handling user authentication, data management, and real-time interactions with the [frontend application](https://github.com/HiepThanhTran/TPM-Mobile-App/), which is built using React Native.
 
 ## Installation
 
