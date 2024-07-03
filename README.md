@@ -60,11 +60,11 @@ python3 manage.py migrate
 python3 manage.py collectdata
 ```
 
-    - This command will create a superuser with:
-        - **username**: admin@gmail.com
-        - **password**: admin@123
+- This command will create a superuser with:
+    - **username**: admin@gmail.com
+    - **password**: admin@123
 
-    - Note: Create superuser if you don't run collectdata command
+- Note: Create superuser if you don't run collectdata command
 
 ```shell
 python3 manage.py createsuperuser
@@ -76,4 +76,4 @@ python3 manage.py createsuperuser
 python3 manage.py runserver
 ```
 
-    - Go to [admin page](http://127.0.0.1:8080/admin/) to view data
+- Go to [admin page](http://127.0.0.1:8080/admin/) to view data
