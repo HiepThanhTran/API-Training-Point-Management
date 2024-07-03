@@ -1,59 +1,79 @@
 # Training Point Management
 
-Welcome to the Training Point Management Mobile App repository! This app is designed for managing training points using modern programming technologies such as Django RestAPI for Backend and React Native for Frontend.
+Welcome to the Training Point Management Web API repository!
 
 ## Installation
 
-1 : Clone the project
+1. Clone the project
 
 ```shell
 git clone https://github.com/HiepThanhTran/TPM-API.git
+cd TPM-API
 ```
 
-2 : Open project with pycharm
-
-3 : Add venv for this project
+2. Create venv for this project
 
 ```shell
-python -m venv venv
+python -m venv .venv
+source .venv/bin/activate
 ```
 
-4 : Download packages in requirements.txt file
+3. Download packages in requirements.txt file
 
 ```shell
 pip install -r requirements.txt
 ```
 
-5 : Create mysql database in your computer or use your database
+4. Environment Variables
 
-6 : Change name, user, password of **DATABASES** variable in settings.py
+    - Create a .env file in the root directory and add the following:
 
-7 : Run makemigrations and migrate
+    ```shell
+     CLOUDINARY_API_KEY=your-cloudinary-api-key
+     CLOUDINARY_API_SECRET=your-cloudinary-api-secret
+     CLOUDINARY_CLOUD_NAME=your-cloudinary-cloud-name
+     POSTGRES_DATABASE=your-postgres-database
+     POSTGRES_HOST=your-postgres-host
+     POSTGRES_PASSWORD=your-postgres-password
+     POSTGRES_PRISMA_URL=your-postgres-prisma-url
+     POSTGRES_URL=your-postgres-url
+     POSTGRES_URL_NON_POOLING=your-postgres-url-non-pooling
+     POSTGRES_URL_NO_SSL=your-postgres-url-no-ssl
+     POSTGRES_USER=your-postgres-user
+     SECRET_KEY=your-postgres-secret-key
+    ```
 
-```shell
-python manage.py makemigrations
-python manage.py migrate
-```
+5. Create mysql database in your computer or use your database
 
-8 : Run a data collection if you want sample data **(This may take a while)**
+6. Change name, user, password of **DATABASES** variable in core/settings.py
 
-```shell
-python manage.py collectdata
-```
-
-- This command will create a superuser with:
-    - **username**: admin@gmail.com
-    - **password**: admin@123
-- And fill data for the database
-
-9 : Create superuser if you don't run collectdata command (Step 8)
-
-```shell
-python manage.py createsuperuser
-```
-
-10 : Run project
+7. Run makemigrations and migrate
 
 ```shell
-python manage.py runserver
+python3 manage.py makemigrations
+python3 manage.py migrate
 ```
+
+8. Run a data collection if you want sample data **(This may take a while)**
+
+```shell
+python3 manage.py collectdata
+```
+
+    - This command will create a superuser with:
+        - **username**: admin@gmail.com
+        - **password**: admin@123
+
+    - Note: Create superuser if you don't run collectdata command
+
+    ```shell
+    python3 manage.py createsuperuser
+    ```
+
+9. Run project
+
+```shell
+python3 manage.py runserver
+```
+
+    - Go to [admin page](http://127.0.0.1:8080/admin/) to view data
