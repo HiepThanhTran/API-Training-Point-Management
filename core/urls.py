@@ -24,7 +24,7 @@ from rest_framework import routers
 
 from activities.urls import router as activities_router
 from core import settings
-from core.base.admin import my_admin_site
+from base import my_admin_site
 from interacts.urls import router as interacts_router
 from schools.urls import router as schools_router
 from users.urls import router as users_router

@@ -7,7 +7,7 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 
 from activities.models import Activity
-from core.base.models import BaseModel
+from base import BaseModel
 
 
 class Account(AbstractUser):

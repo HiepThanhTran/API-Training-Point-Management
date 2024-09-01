@@ -1,17 +1,17 @@
 from django.contrib.auth.hashers import check_password
-from django.db.models import Q
 from rest_framework import generics, parsers, permissions, status, viewsets
 from rest_framework.decorators import action
 from rest_framework.generics import get_object_or_404
 from rest_framework.response import Response
 
 from activities import serializers as activities_serializers
-from core.base import paginators, perms
-from core.utils import dao, factory
+from base import paginators
+from base import perms
+from utils import dao
 from schools import serializers as schools_serializer
 from schools.models import Semester
 from users import serializers as users_serializers
-from users.models import Account, Assistant, Officer, Specialist, Student
+from users.models import Account, Assistant, Specialist, Student
 
 
 class AccountViewSet(viewsets.ViewSet):

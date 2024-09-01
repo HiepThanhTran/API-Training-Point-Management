@@ -1,4 +1,4 @@
-from core.base.serializers import BaseSerializer
+from base.serializers import BaseSerializer
 from schools.models import Criterion, Semester, Class, Faculty
 
 

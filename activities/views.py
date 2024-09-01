@@ -13,8 +13,9 @@ from activities.models import (
     Bulletin,
     MissingActivityReport,
 )
-from core.base import paginators, perms
-from core.utils import dao, factory, validations
+from base import paginators
+from base import perms
+from utils import dao, factory, validations
 from interacts import serializers as interacts_serializers
 from users.models import Account, Student
 

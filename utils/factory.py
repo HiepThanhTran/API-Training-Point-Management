@@ -5,8 +5,8 @@ from django.db.models import Func
 from rest_framework.exceptions import ValidationError
 from rest_framework.generics import get_object_or_404
 
-from core.utils import validations
-from core.utils.configs import DEFAULT_PUBLIC_ID, PERMISSIONS
+from utils import validations
+from utils.configs import DEFAULT_PUBLIC_ID, PERMISSIONS
 from schools.models import Class, Faculty, Semester
 from users.models import User
 

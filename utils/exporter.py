@@ -12,8 +12,8 @@ from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.platypus import Paragraph, SimpleDocTemplate, Table, TableStyle
 
 from core import settings
-from core.utils import dao
-from core.utils.configs import CONTENT_TYPE_BY_FILE_FORMAT
+from utils import dao
+from utils.configs import CONTENT_TYPE_BY_FILE_FORMAT
 
 font_path = os.path.join(settings.BASE_DIR, "static/fonts/dejavu/DejaVuSans.ttf")
 pdfmetrics.registerFont(TTFont(name="DejaVuSans", filename=font_path))

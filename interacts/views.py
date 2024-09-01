@@ -1,7 +1,8 @@
 from rest_framework import generics, viewsets, status
 from rest_framework.response import Response
 
-from core.base import paginators, perms
+from base import paginators
+from base import perms
 from interacts import serializers as interacts_serializers
 from interacts.models import Comment
 

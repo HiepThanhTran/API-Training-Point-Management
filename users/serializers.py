@@ -1,7 +1,7 @@
 from rest_framework import serializers
 
-from core.base.serializers import BaseSerializer
-from core.utils import factory, validations
+from base.serializers import BaseSerializer
+from utils import factory, validations
 from users.models import Account, Administrator, Assistant, Specialist, Student, User
 
 

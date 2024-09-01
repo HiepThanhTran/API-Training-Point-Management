@@ -1,4 +1,3 @@
-from django.contrib import admin
 from django.contrib.contenttypes.models import ContentType
 from django.utils.safestring import mark_safe
 
@@ -9,7 +8,7 @@ from activities.models import (
     Bulletin,
     MissingActivityReport,
 )
-from core.base.admin import BaseAdmin, my_admin_site
+from base import BaseAdmin, my_admin_site
 
 
 class BulletinAdmin(BaseAdmin):

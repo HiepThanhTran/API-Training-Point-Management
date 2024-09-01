@@ -3,7 +3,7 @@ from django.contrib.auth.models import Group, Permission
 from django.template.response import TemplateResponse
 from django.urls import path
 
-from core.utils import dao
+from utils import dao
 from schools.models import Faculty, Semester
 
 

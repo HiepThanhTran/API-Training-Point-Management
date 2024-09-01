@@ -5,8 +5,8 @@ from django.core.management.base import BaseCommand
 
 from activities.models import Activity, Bulletin
 from commands.models import CollectData
-from core.utils import factory
-from core.utils.configs import MODEL_DATA_PATH
+from utils import factory
+from utils.configs import MODEL_DATA_PATH
 from users.models import Assistant
 
 

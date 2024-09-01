@@ -6,10 +6,9 @@ from activities.models import (
     Bulletin,
     MissingActivityReport,
 )
-from core.base.serializers import BaseSerializer
-from core.utils import factory, validations
+from base.serializers import BaseSerializer
+from utils import factory, validations
 from interacts.models import Like
-from schools import serializers as schools_serializer
 
 
 class BulletinSerializer(BaseSerializer):

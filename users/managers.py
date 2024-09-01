@@ -6,7 +6,7 @@ from django.utils.translation import gettext_lazy as _
 
 class AccountManager(BaseUserManager):
 	def create_account(self, email=None, password=None, **extra_fields):
-		from core.utils import factory
+		from utils import factory
 		if not email:
 			raise ValueError(_("Email must be set"))
 
@@ -19,7 +19,7 @@ class AccountManager(BaseUserManager):
 		return account
 
 	def create_superuser(self, email=None, password=None, **extra_fields):
-		from core.utils import factory
+		from utils import factory
 		extra_fields.setdefault("is_staff", True)
 		extra_fields.setdefault("is_superuser", True)
 		extra_fields.setdefault("role", self.model.Role.ADMINISTRATOR)

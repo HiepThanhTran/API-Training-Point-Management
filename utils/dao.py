@@ -1,6 +1,6 @@
 from django.db.models import Case, Count, F, IntegerField, Sum, When
 
-from core.utils.configs import ACHIEVEMENTS, ACHIEVEMENTS_ORDER
+from utils.configs import ACHIEVEMENTS, ACHIEVEMENTS_ORDER
 from schools.models import TrainingPoint
 
 

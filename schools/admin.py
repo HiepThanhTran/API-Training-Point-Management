@@ -1,6 +1,4 @@
-from django.contrib import admin
-
-from core.base.admin import BaseAdmin, my_admin_site
+from base import BaseAdmin, my_admin_site
 from schools.models import (
     AcademicYear,
     Class,
@@ -9,7 +7,6 @@ from schools.models import (
     Faculty,
     Major,
     Semester,
-    SemesterOfStudent,
     TrainingPoint,
 )
 

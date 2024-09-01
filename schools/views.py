@@ -2,8 +2,9 @@ from rest_framework import generics, status, viewsets
 from rest_framework.decorators import action
 from rest_framework.response import Response
 
-from core.base import paginators, perms
-from core.utils import dao, exporter, factory
+from base import paginators
+from base import perms
+from utils import dao, exporter, factory
 from schools import serializers as schools_serializers
 from schools.models import Class, Criterion, Semester, Faculty
 
