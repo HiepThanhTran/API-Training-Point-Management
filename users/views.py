@@ -7,11 +7,11 @@ from rest_framework.response import Response
 from activities import serializers as activities_serializers
 from base import paginators
 from base import perms
-from utils import dao
 from schools import serializers as schools_serializer
 from schools.models import Semester
 from users import serializers as users_serializers
 from users.models import Account, Assistant, Specialist, Student
+from utils import dao
 
 
 class AccountViewSet(viewsets.ViewSet):
@@ -80,7 +80,7 @@ class AllUsersViewSet(viewsets.ViewSet):
 		combined_accounts = list(specialist_accounts) + list(assistant_accounts)
 
 		combined_accounts = dao.filter_by_full_name(queryset=combined_accounts, search=name) if name else combined_accounts
-		
+
 		paginator = paginators.UserPagination()
 		paginated_accounts = paginator.paginate_queryset(combined_accounts, request)
 		serializer = users_serializers.AccountSerializer(paginated_accounts, many=True)
@@ -105,6 +105,7 @@ class AssistantViewSet(viewsets.ViewSet, generics.ListAPIView, generics.Retrieve
 			queryset = queryset.filter(code__icontains=code) if code else queryset
 
 		return queryset
+
 
 class SpecialistViewSet(viewsets.ViewSet, generics.ListAPIView, generics.RetrieveAPIView):
 	queryset = Specialist.objects.select_related("faculty").filter(is_active=True)

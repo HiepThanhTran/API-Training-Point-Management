@@ -5,9 +5,9 @@ from django.contrib.auth.hashers import make_password
 from django.core.management.base import BaseCommand
 
 from commands.models import CollectData
-from utils import factory
 from schools.models import Class, Faculty
 from users.models import Account
+from utils import factory
 
 
 class Command(BaseCommand):

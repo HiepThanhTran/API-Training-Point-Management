@@ -1,14 +1,14 @@
 from rest_framework import serializers
 
 from activities.models import (
-    Activity,
-    ActivityRegistration,
-    Bulletin,
-    MissingActivityReport,
+	Activity,
+	ActivityRegistration,
+	Bulletin,
+	MissingActivityReport,
 )
 from base.serializers import BaseSerializer
-from utils import factory, validations
 from interacts.models import Like
+from utils import factory, validations
 
 
 class BulletinSerializer(BaseSerializer):
@@ -163,7 +163,7 @@ class StudentAuthenticatedActivitySerializer(AuthenticatedActivitySerializer):
 		user = getattr(request.user, instance_name, None)
 
 		return activity.participants.filter(pk=user.id).exists()
-	
+
 	def get_reported(self, activity):
 		request = self.context.get("request")
 
@@ -171,7 +171,7 @@ class StudentAuthenticatedActivitySerializer(AuthenticatedActivitySerializer):
 			report = MissingActivityReport.objects.get(student=request.user.student, activity=activity)
 		except MissingActivityReport.DoesNotExist:
 			return {"reported": False, "is_resolved": None}
-		
+
 		return {"reported": True, "is_resolved": report.is_resolved}
 
 

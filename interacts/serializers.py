@@ -1,8 +1,8 @@
 from rest_framework import serializers
 
-from utils import validations
 from interacts.models import Comment
 from users import serializers as users_serializer
+from utils import validations
 
 
 class CommentSerializer(serializers.ModelSerializer):

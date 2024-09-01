@@ -1,4 +1,4 @@
-from base import BaseAdmin, my_admin_site
+from base.admin import BaseAdmin, my_admin_site
 from interacts.models import Comment, Like
 
 

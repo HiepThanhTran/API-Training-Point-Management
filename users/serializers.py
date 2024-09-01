@@ -1,8 +1,8 @@
 from rest_framework import serializers
 
 from base.serializers import BaseSerializer
-from utils import factory, validations
 from users.models import Account, Administrator, Assistant, Specialist, Student, User
+from utils import factory, validations
 
 
 class AccountSerializer(BaseSerializer):

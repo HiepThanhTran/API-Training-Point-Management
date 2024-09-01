@@ -2,7 +2,7 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 from django_ckeditor_5.fields import CKEditor5Field
 
-from base import BaseModel
+from base.models import BaseModel
 from schools import apps
 
 

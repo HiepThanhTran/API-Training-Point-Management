@@ -5,9 +5,9 @@ from django.core.management.base import BaseCommand
 
 from activities.models import Activity, Bulletin
 from commands.models import CollectData
+from users.models import Assistant
 from utils import factory
 from utils.configs import MODEL_DATA_PATH
-from users.models import Assistant
 
 
 class Command(BaseCommand):

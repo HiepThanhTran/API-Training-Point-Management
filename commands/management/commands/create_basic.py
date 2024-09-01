@@ -4,9 +4,9 @@ import json
 from django.core.management.base import BaseCommand
 
 from commands.models import CollectData
-from utils.configs import MODEL_DATA_PATH
 from schools.models import AcademicYear, Class, Criterion, EducationalSystem, Faculty, Major, Semester
 from users.models import Account, Administrator, Assistant, Specialist
+from utils.configs import MODEL_DATA_PATH
 
 
 class Command(BaseCommand):

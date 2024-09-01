@@ -5,10 +5,10 @@ from django.db.models import Func
 from rest_framework.exceptions import ValidationError
 from rest_framework.generics import get_object_or_404
 
-from utils import validations
-from utils.configs import DEFAULT_PUBLIC_ID, PERMISSIONS
 from schools.models import Class, Faculty, Semester
 from users.models import User
+from utils import validations
+from utils.configs import DEFAULT_PUBLIC_ID, PERMISSIONS
 
 
 def set_permissions_for_account(account):
@@ -108,6 +108,7 @@ def get_all_subclasses(cls):
 		all_subclasses.extend(get_all_subclasses(subclass))
 
 	return all_subclasses
+
 
 class Unaccent(Func):
 	function = 'unaccent'

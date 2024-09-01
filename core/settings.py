@@ -101,13 +101,13 @@ pymysql.install_as_MySQLdb()
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-	"default": {
-		"ENGINE": "django.db.backends.postgresql_psycopg2",
-		"NAME": os.getenv("POSTGRES_DATABASE"),
-		"USER": os.getenv("POSTGRES_USER"),
-		"PASSWORD": os.getenv("POSTGRES_PASSWORD"),
-		"HOST": os.getenv("POSTGRES_HOST"),
-	},
+	# "default": {
+	# 	"ENGINE": "django.db.backends.postgresql_psycopg2",
+	# 	"NAME": os.getenv("POSTGRES_DATABASE"),
+	# 	"USER": os.getenv("POSTGRES_USER"),
+	# 	"PASSWORD": os.getenv("POSTGRES_PASSWORD"),
+	# 	"HOST": os.getenv("POSTGRES_HOST"),
+	# },
 	# "default": {
 	# 	"ENGINE": "django.db.backends.mysql",
 	# 	"NAME": "training_point_db",
@@ -115,10 +115,10 @@ DATABASES = {
 	# 	"PASSWORD": "29012003",
 	# 	"HOST": "localhost",
 	# },
-	# "default": {
-	# 	"ENGINE": "django.db.backends.sqlite3",
-	# 	"NAME": BASE_DIR / "db.sqlite3",
-	# },
+	"default": {
+		"ENGINE": "django.db.backends.sqlite3",
+		"NAME": BASE_DIR / "db.sqlite3",
+	},
 }
 
 AUTH_USER_MODEL = "users.Account"
@@ -212,7 +212,7 @@ cloudinary.config(
 	cloud_name=os.getenv("CLOUDINARY_CLOUD_NAME"),
 	api_key=os.getenv("CLOUDINARY_API_KEY"),
 	api_secret=os.getenv("CLOUDINARY_API_SECRET"),
-	api_proxy = "http://proxy.server:3128/",
+	api_proxy="http://proxy.server:3128/",
 )
 
 customColorPalette = [

@@ -1,13 +1,13 @@
-from base import BaseAdmin, my_admin_site
+from base.admin import BaseAdmin, my_admin_site
 from schools.models import (
-    AcademicYear,
-    Class,
-    Criterion,
-    EducationalSystem,
-    Faculty,
-    Major,
-    Semester,
-    TrainingPoint,
+	AcademicYear,
+	Class,
+	Criterion,
+	EducationalSystem,
+	Faculty,
+	Major,
+	Semester,
+	TrainingPoint,
 )
 
 

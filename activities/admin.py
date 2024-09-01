@@ -3,12 +3,12 @@ from django.utils.safestring import mark_safe
 
 from activities.forms import ActivityAdminForm
 from activities.models import (
-    Activity,
-    ActivityRegistration,
-    Bulletin,
-    MissingActivityReport,
+	Activity,
+	ActivityRegistration,
+	Bulletin,
+	MissingActivityReport,
 )
-from base import BaseAdmin, my_admin_site
+from base.admin import BaseAdmin, my_admin_site
 
 
 class BulletinAdmin(BaseAdmin):

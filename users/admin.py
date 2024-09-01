@@ -1,6 +1,6 @@
 from django.utils.safestring import mark_safe
 
-from base import BaseAdmin, my_admin_site
+from base.admin import BaseAdmin, my_admin_site
 from users.models import Account, Administrator, Assistant, Specialist, Student
 
 

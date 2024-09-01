@@ -4,9 +4,9 @@ from rest_framework.response import Response
 
 from base import paginators
 from base import perms
-from utils import dao, exporter, factory
 from schools import serializers as schools_serializers
 from schools.models import Class, Criterion, Semester, Faculty
+from utils import dao, exporter, factory
 
 
 class FacultyViewSet(viewsets.ViewSet, generics.ListAPIView):

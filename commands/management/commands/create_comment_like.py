@@ -3,8 +3,8 @@ import json
 from django.core.management.base import BaseCommand
 
 from commands.models import CollectData
-from utils.configs import MODEL_DATA_PATH
 from interacts.models import Comment, Like
+from utils.configs import MODEL_DATA_PATH
 
 
 class Command(BaseCommand):

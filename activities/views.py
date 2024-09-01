@@ -8,16 +8,16 @@ from rest_framework.response import Response
 
 from activities import serializers as activities_serializers
 from activities.models import (
-    Activity,
-    ActivityRegistration,
-    Bulletin,
-    MissingActivityReport,
+	Activity,
+	ActivityRegistration,
+	Bulletin,
+	MissingActivityReport,
 )
 from base import paginators
 from base import perms
-from utils import dao, factory, validations
 from interacts import serializers as interacts_serializers
 from users.models import Account, Student
+from utils import dao, factory, validations
 
 
 class BulletinViewSet(viewsets.ViewSet, generics.ListCreateAPIView, generics.RetrieveDestroyAPIView):
@@ -112,7 +112,7 @@ class ActivityViewSet(viewsets.ViewSet, generics.ListCreateAPIView, generics.Ret
 		if self.request.user.is_authenticated:
 			if self.request.user.role == Account.Role.STUDENT:
 				return activities_serializers.StudentAuthenticatedActivitySerializer
-			
+
 			return activities_serializers.AuthenticatedActivitySerializer
 
 		return self.serializer_class

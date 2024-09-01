@@ -5,7 +5,7 @@ from django.utils.translation import gettext_lazy as _
 from django_ckeditor_5.fields import CKEditor5Field
 
 from activities import apps
-from base import BaseModel
+from base.models import BaseModel
 
 
 class Bulletin(BaseModel):

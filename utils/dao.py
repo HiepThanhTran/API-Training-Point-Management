@@ -1,7 +1,7 @@
 from django.db.models import Case, Count, F, IntegerField, Sum, When
 
-from utils.configs import ACHIEVEMENTS, ACHIEVEMENTS_ORDER
 from schools.models import TrainingPoint
+from utils.configs import ACHIEVEMENTS, ACHIEVEMENTS_ORDER
 
 
 def get_statistics(semester=None, faculty=None, sclass=None):
@@ -105,17 +105,18 @@ def update_point_for_student(registration):
 
 	return training_point
 
+
 def filter_by_full_name(queryset, search):
 	filtered_queryset = []
 	for query in queryset:
-			if hasattr(query, 'specialist'):
-				full_name = f"{query.specialist.last_name} {query.specialist.middle_name} {query.specialist.first_name}".strip().lower()
-			elif hasattr(query, 'assistant'):
-				full_name = f"{query.assistant.last_name} {query.assistant.middle_name} {query.assistant.first_name}".strip().lower()
-			else:
-				full_name = f"{query.last_name} {query.middle_name} {query.first_name}".strip().lower()
+		if hasattr(query, 'specialist'):
+			full_name = f"{query.specialist.last_name} {query.specialist.middle_name} {query.specialist.first_name}".strip().lower()
+		elif hasattr(query, 'assistant'):
+			full_name = f"{query.assistant.last_name} {query.assistant.middle_name} {query.assistant.first_name}".strip().lower()
+		else:
+			full_name = f"{query.last_name} {query.middle_name} {query.first_name}".strip().lower()
 
-			if search in full_name:
-				filtered_queryset.append(query)
+		if search in full_name:
+			filtered_queryset.append(query)
 
 	return filtered_queryset
