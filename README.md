@@ -79,3 +79,4 @@ python3 manage.py runserver
 ```
 
 - Go to [admin page](http://127.0.0.1:8080/admin/) to view data
+- Go to [swagger page](https://trainingpoint.vercel.app/swagger/) to view API documentation
