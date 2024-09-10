@@ -6,14 +6,6 @@ training points for students. Developed using Django, this Web API offers a robu
 interactions with the [Frontend Application](https://github.com/HiepThanhTran/TPM-Mobile-App/), which is built using React Native.
 
 
-## Features
-
-- Light/dark mode toggle
-- Live previews
-- Fullscreen mode
-- Cross platform
-
-
 ## Installation
 
 - Clone the project
