@@ -1,4 +1,3 @@
-
 # Training Point Management
 
 Welcome to the Training Point Management Web API repository! This project is designed to provide a comprehensive backend solution for managing and tracking
