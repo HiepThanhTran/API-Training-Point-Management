@@ -1,4 +1,4 @@
-# Training Point Management
+# Trainify - Training Point Management
 
 Welcome to the Training Point Management Web API repository! This project is designed to provide a comprehensive backend solution for managing and tracking
 training points for students. Developed using Django, this Web API offers a robust framework for handling user authentication, data management, and real-time
@@ -7,30 +7,30 @@ interactions with the [Frontend Application](https://github.com/HiepThanhTran/TP
 
 ## Installation
 
-- Clone the project
+1. Clone the project
 
 ```bash
-git clone https://github.com/HiepThanhTran/TPM-API.git
-cd TPM-API
+git clone https://github.com/HiepThanhTran/Trainify-App-BE.git
 ```
 
-- Create a virtual environment
+2. Create a virtual environment
 
 ```bash
 python3 -m venv .venv
 ```
 
-- Activate the environment
+3. Activate the environment
 
 ```bash
 source venv/bin/activate   # On Windows: venv\Scripts\activate
 ``` 
 
-- Install packages from requirements.txt
+4. Install packages from requirements.txt
 
 ```shell
 pip install -r requirements.txt
 ```
+
 ## Environment Variables
 
 To run this project, you will need to add the following environment variables to your .env file
@@ -58,6 +58,7 @@ To run this project, you will need to add the following environment variables to
 `DATABASE_USER=your-database-user`
 
 `SECRET_KEY=your-database-secret-key`
+
 ## Run Locally
 
 - Create mysql database in your computer or use your database
